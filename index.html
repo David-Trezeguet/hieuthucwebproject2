@@ -8,45 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- thuc: login  -->
-    Log In. If you already have a BookExchange profile, please log in.
-    <form action='/login' method="POST" onsubmit="return validateForm()">    
-        <p><label>Choose your username</label></p>
-        <p><input type="text" name="username"></p>
-        <p><label>Set up you password</label></p>
-        <p><input type="password" name="password"></p>
-          <!-- Add hidden idmember data to the form   -->
-          <script type="text/javascript">
-            const idownerElem = document.createElement('input');
-            idownerElem.type = 'hidden';
-            idownerElem.name = 'idowner';
-            idownerElem.value = localStorage.getItem('idmember');
-            document.currentScript.parentNode.appendChild(idownerElem);
-          </script>
 
-
-        <input type="submit" name="" value="Log In">
-        
-        <p>Do not have account yet?</p>
-        <p><input type="button" name="" value="Create account" onclick="window.location.href='/signup'"></p>
-
-    </form>
-
-    <script type="text/javascript">
-        function validateForm() {
-          var x = document.forms[0]["username"].value;
-          if (x == "") {
-            alert("username must be filled out");
-            return false;
-          }
-
-          x = document.forms[0]["password"].value;
-          if (x == "") {
-            alert("password must be filled out");
-            return false;
-          }
-        }
-    </script>
-    <!-- end thuc: login -->
 </body>
 </html>
