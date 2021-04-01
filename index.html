@@ -39,9 +39,6 @@
               }
 
               function validateForm() {
-                validate(document.forms.loginForm["email"]);
-                validate(document.forms.loginForm["password"]);
-
                 return validate(document.forms.loginForm["email"]) && validate(document.forms.loginForm["password"]);
               }
           </script>
@@ -116,11 +113,6 @@
         }
 
         function validateForm2() {
-          validate(document.forms.signupForm["name"]);
-          validate(document.forms.signupForm["email"]);
-          validate(document.forms.signupForm["password"]);
-          validatePasswordMatch();
-
           return validate(document.forms.signupForm["name"])
               && validate(document.forms.signupForm["email"])
               && validate(document.forms.signupForm["password"])
@@ -338,8 +330,8 @@
             </td>
         </tr>
     </table>
-    <p><a href="/review">All Reviews</a></p>
     
+    <button>View My Exchange History</button>
     <!-- END thuc:profile page -->
 </body>
 </html>
