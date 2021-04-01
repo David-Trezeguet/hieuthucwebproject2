@@ -5,25 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js"></script>
-    <title>Document</title>
+    <title>BookExchange | Welcome to BookExchange</title>
 </head>
 <body>
-    <!-- thuc: login  -->
+    <!-- START thuc:login update data validation -->
     Log In. If you already have a BookExchange profile, please log in.
-    <form action='/login' method="POST" onsubmit="return validateForm()">    
-        <p><label>Choose your username</label></p>
-        <p><input type="text" name="username"></p>
-        <p><label>Set up you password</label></p>
-        <p><input type="password" name="password"></p>
-          <!-- Add hidden idmember data to the form   -->
+    <form name="loginForm" action='/login' method="POST" onsubmit="return validateForm()">    
+        <p><label>Email</label></p>
+        <p><input type="email" name="email" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+        <p><label>Password</label></p>
+        <p><input type="password" name="password" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
           <script type="text/javascript">
-            const idownerElem = document.createElement('input');
-            idownerElem.type = 'hidden';
-            idownerElem.name = 'idowner';
-            idownerElem.value = localStorage.getItem('idmember');
-            document.currentScript.parentNode.appendChild(idownerElem);
-          </script>
+              function validate(obj) {
+                  removeValidatingNotification(obj);
 
+                  if (obj.value.trim() == "") {
+                    const notificationElement = document.createElement('p');
+                    notificationElement.innerText = "Please enter your " + obj.name + ".";
+                    notificationElement.style.color = 'red';
+                    notificationElement.id = obj.name + '-validating-notification';
+                    obj.parentNode.append(notificationElement);
+                    return false;
+                  }
+
+                  return true;
+              }
+
+              function removeValidatingNotification(obj) {
+                const x = document.getElementById(obj.name + '-validating-notification');
+                if(x) x.remove();
+              }
+
+              function validateForm() {
+                return validate(document.forms.loginForm["email"]) && validate(document.forms.loginForm["password"]);
+              }
+          </script>
 
         <input type="submit" name="" value="Log In">
         
@@ -31,45 +49,467 @@
         <p><input type="button" name="" value="Create account" onclick="window.location.href='/signup'"></p>
 
     </form>
+    <!-- END thuc:login update data validation -->
 
-    <script type="text/javascript">
-        function validateForm() {
-          var x = document.forms[0]["username"].value;
-          if (x == "") {
-            alert("username must be filled out");
-            return false;
-          }
-
-          x = document.forms[0]["password"].value;
-          if (x == "") {
-            alert("password must be filled out");
-            return false;
-          }
-        }
-    </script>
-    <!-- end thuc: login -->
-
-    <!-- thuc:signup -->
+    <!-- START thuc:signup update data validation -->
     Welcome to BookExchange!<br>
     To start your journey you need to register.
-    <form action="/signup" method="POST">
-        <p><label>Name</label><input type="text" name=""></p>
-        <p><label>Surname</label><input type="text" name=""></p>
-        <p><label>Email</label><input type="text" name=""></p>
-        <p><label>Country</label><input type="text" name=""></p>
-        <p><label>City</label><input type="text" name=""></p>
-        <p><label>Street</label><input type="text" name=""></p>
-        <p><label>Postal code</label><input type="text" name=""></p>
+    <form name="signupForm" action="/signup" method="POST" onsubmit="return validateForm2()">
+        <p><label>Name</label><input type="text" name="name" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+        <p><label>Surname</label><input type="text" name="surname"></p>
+        <p><label>Email</label><input type="email" name="email" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+        <p><label>Country</label><input type="text" name="country"></p>
+        <p><label>City</label><input type="text" name="city"></p>
+        <p><label>Street</label><input type="text" name="street"></p>
+        <p><label>Postal code</label><input type="text" name="postal code"></p>
         
-        <p><label>Choose your username</label></p>
-        <p><input type="text" name="username"></p>
         <p><label>Set up your password</label></p>
-        <p><input type="password" name="password"></p>
+        <p><input type="password" name="password" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
         <p><label>Please re-type your password</label></p>
-        <p><input type="password" name="password2"></p>
+        <p><input type="password" name="password2" onfocus="removeValidatingNotification(this)"></p>
 
         <input type="submit" name="" value="Create account">
     </form>
+<<<<<<< HEAD
     <!-- END thuc:signup -->
+
+    <!-- START thuc:header -->
+    <a href="/"><img src="/images/logo.png"></a>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/signup">Sign Up</a></li>
+      <li><a href="/login">Log In</a></li>
+    </ul>
+    <!-- END thuc:header -->
+
+    <!-- START Anastasiia: body-->
+    <!-- body of the main page -->
+    <p>Welcome to the book exchange platform!</p>
+    <p>Here you can give away your old books and find new ones.</p>
+    <!--Search  https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit-->
+    <form>
+        <label for="Title">Book title:</label><br>
+        <input type="text" id="Title"><br>
+        <label for="Author">Book author:</label><br>
+        <input type="text" id="Author">
+    </form>
+    <button>See latest posted books</button>
+    <!--Create account sugestion-->
+    <p>And do not forget to share your books</p>
+    <button>Create account</button>
+    <!--About project (here should be sent when clicking "about" in header)-->
+    <h1>How does it work</h1>
+    <p>You search for the book<br>
+        <i class="fas fa-search"></i>
+    </p>
+    <p>Agree with the owner<br>
+        <i class="far fa-handshake"></i>
+    </p>
+    <p>Share books you want to give away<br>
+        <i class="fas fa-recycle"></i>
+    </p>
+    <!-- END Anastasiia: body-->
+
+    <!-- START Anastasiia: search result-->
+    <div id="SearchResultBox">
+      <img>
+      <p>Title</p>
+      <p>Author, year</p>
+      <p>Description</p>
+      <button>Sent message</button>
+    </div>
+    <!-- END Anastasiia: search result-->
+
+    <!-- Hieu detail page -->
+    <div class="web">
+      <!-- header -->
+      <div class="header">
+          <!-- header_navbar -->
+          <div class="header_navbar">
+          </div>
+      </div>
+
+      <!-- container -->
+      <div class="container">
+          <!-- container-img-info -->
+          <div class="container-img-info">
+              <div class="container--img">
+                  <div class="container---bigimg">
+                      <img src="img/sp01.png">
+                  </div>
+                  <div class="container---smallimgs">
+                      <div class="smallimg">
+                          <img src="img/sp01/slide2.png">
+                          <div class="hide"><img src="img/sp01/slide2.png"></div>
+                          
+                      </div>
+                      <div class="smallimg">
+                          <img src="img/sp01/slide3.png">
+                          <div class="hide"><img src="img/sp01/slide3.png"></div>
+                      </div>
+                      <div class="smallimg">
+                          <img src="img/sp01/slide4.png">
+                          <div class="hide"><img src="img/sp01/slide4.png"></div>
+                      </div>
+                      <div class="smallimg">
+                          <img src="img/sp01/slide5.png">
+                          <div class="hide"><img src="img/sp01/slide5.png"></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="container--info">
+                  <div class="info-book">THE CALL OF THE WILD</div>
+                  <div class="info-book">Jack London</div>
+
+                  <div class="info-version">
+                      <div>Issue date: <span>05/05/2019</span></div>
+                      <div>Edition: <span>2</span></div>
+                  </div>
+                  <div class="info-condition">Book condition: <span>like new 90 % ...</span></div>
+                  
+                  <div class="info-owner">Owner: <span>Hieu Nguyen</span></div>
+                  <div class="info-rating">
+                      <span>Rating: </span>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  </div>
+
+                  <button class="buynow"><a href="">Message with Owner</a></button>
+                  <div class="info-delivery">Estimated delivery time: <span>14</span>  days</div>
+              </div>
+          </div>
+          <!-- container-summary -->
+          <div class="container-summary">
+              <h1>SUMMARY</h1>
+              <p><b>Jack London</b> - John Griffith London (born John Griffith Chaney; January 12, 1876 – November 22, 1916) was an American novelist, journalist, and social activist. A pioneer of commercial fiction and American magazines, he was one of the first American authors to become an international celebrity and earn a large fortune from writing.[citation needed] He was also an innovator in the genre that would later become known as science fiction.</p>
+              <p>His most famous works include The Call of the Wild and White Fang, both set in the Klondike Gold Rush, as well as the short stories "To Build a Fire", "An Odyssey of the North", and "Love of Life". He also wrote about the South Pacific in stories such as "The Pearls of Parlay", and "The Heathen".</p>
+              <p><b>The Call of the Wild</b> is a short adventure novel by Jack London, published in 1903 and set in Yukon, Canada, during the 1890s Klondike Gold Rush, when strong sled dogs were in high demand. The central character of the novel is a dog named Buck. The story opens at a ranch in Santa Clara Valley, California, when Buck is stolen from his home and sold into service as a sled dog in Alaska. He becomes progressively primitive and wild in the harsh environment, where he is forced to fight to survive and dominate other dogs. By the end, he sheds the veneer of civilization, and relies on primordial instinct and learned experience to emerge as a leader in the wild.</p>
+              <p>London spent almost a year in the Yukon, and his observations form much of the material for the book. The story was serialized in The Saturday Evening Post in the summer of 1903 and was published later that year in book form. The book's great popularity and success made a reputation for London. As early as 1923, the story was adapted to film, and it has since seen several more cinematic adaptations.</p>
+          </div>  
+      </div>
+
+      <!-- footer -->
+      <div class="footer">
+      <hr>
+      <div class="footer-collumn">
+          <div class="footer-collumna">
+              <div class="footer-collumna-top">
+                  <h3>CONTACT US</h3>
+              </div>
+              <ul class="footer-collumna-bottom">
+                  <li>
+                      <a href="" class="">
+                          <i class="fas fa-phone-volume"></i>
+                          <span id="phone">&nbsp;0909 123 456 <sub>(Free)</sub></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="" class="">
+                          <i class="far fa-envelope"></i>
+                          <span>team3@students.oamk.fi</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="" class="">
+                          <i class="fas fa-home"></i>
+                          <span class="home address">Yliopistokatu 9, 90570 OULU 90570 Oulu, Finland</span>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          <div class="footer-collumnb">
+              <div class="footer-collumnb-top">
+                  <h3>INFORMATION</h3>
+              </div>
+              <ul class="footer-collumnb-bottom">
+                  <li><a href="" class="">About us</a></li>
+                  <li><a href="" class="">Exchanging Guide</a></li>
+                  <li><a href="" class="">Transportation</a></li>
+              </ul>
+          </div>
+          <div class="footer-collumnc">
+              <div class="footer-collumnc-top">
+                  <h3>WHERE TO FIND US</h3>
+              </div>
+              <div class="footer-collumnc-bottom">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1682.2676912167033!2d25.469971516233894!3d65.06181808401735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46802d052d06ce85%3A0xd4acaa362bd64910!2sYliopistokatu%209%2C%2090570%20Oulu%2C%20Ph%E1%BA%A7n%20Lan!5e0!3m2!1svi!2s!4v1607357770203!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+              </div>
+          </div>
+      </div>
+      <hr>
+      <div class="footer-end">
+          <span>© 2020 TEAM3. All rights reserved.</span>
+      </div>
+      </div>
+  </div>
+    <!-- Hieu detail page end -->
+=======
+    <script type="text/javascript">
+        function validate(obj) {
+            removeValidatingNotification(obj);
+
+            if (obj.value.trim() == "") {
+              const notificationElement = document.createElement('p');
+              notificationElement.innerText = "Please enter your " + obj.name + ".";
+              notificationElement.style.color = 'red';
+              notificationElement.id = obj.name + '-validating-notification';
+              obj.parentNode.append(notificationElement);
+              return false;
+            }
+
+            return true;
+        }
+
+        function removeValidatingNotification(obj) {
+          const x = document.getElementById(obj.name + '-validating-notification');
+          if(x) x.remove();
+        }
+
+        function validatePasswordMatch(){
+          const pw = document.forms.signupForm["password"];
+          const pw2 = document.forms.signupForm["password2"];
+
+          removeValidatingNotification(pw2);
+
+          if (pw2.value != pw.value){
+              const notificationElement = document.createElement('p');
+              notificationElement.innerText = "Your password does not match. Please try again.";
+              notificationElement.style.color = 'red';
+              notificationElement.id = pw2.name + '-validating-notification';
+              pw2.parentNode.append(notificationElement);
+              return false;
+          }
+
+          return true;
+        }
+
+        function validateForm2() {
+          return validate(document.forms.signupForm["name"])
+              && validate(document.forms.signupForm["email"])
+              && validate(document.forms.signupForm["password"])
+              && validatePasswordMatch();
+        }
+    </script>
+    <!-- END thuc:signup update data validation -->
+
+    <!-- START thuc:profile page -->
+    <div class="t-profile-information">
+        <div class="t-left-panel-avatar-and-name">
+            <div class="t-avatar"><img src="./images/avatar.jpg"></div>
+            <!-- <div class="t-full-name">{member.firstname + ' ' + member.lastname}</div> -->
+            <div class="t-full-name">John Doe</div>
+            <button id="edit-my-profile">Edit my profile</button>
+        </div>
+        <div class="t-right-panel-other-info">
+            <label>Full name</label><label class="non-editable" name="profile-info-to-edit" contentEditable="false">John Doe</label><hr>
+            <label>Email</label><label class="non-editable" name="profile-info-to-edit" contentEditable="false">doe.john.9600@gmail.com</label><hr>
+            <label>Phone</label><label class="non-editable" name="profile-info-to-edit" contentEditable="false">+358 20 6110 200</label><hr>
+            <label>Address</label><label class="non-editable" name="profile-info-to-edit" contentEditable="false">Pentti Kaiteran katu 1, 90570 Oulu</label><hr>
+
+            <label>Credit score</label>
+            <label>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <style type="text/css">
+                    .fa-star.checked, .fa-star-half.checked { color: orange; }
+                </style>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star-half checked"></span>
+            </label>
+        </div>
+        <style type="text/css">
+            .editable {
+                border: 1px solid black;
+                padding: 0px 10px;
+                cursor: text;
+                color: red;
+            }
+
+            .non-editable {
+                border: none;
+                padding: none;
+                cursor: default;
+                color: black;
+            }
+        </style>
+        <script type="text/javascript">
+            function toggleEdit() {
+                let editMyProfileButton = document.getElementById('edit-my-profile');
+
+                if (editMyProfileButton.innerText == 'Edit my profile'){  //contentEditable == false
+                    editMyProfileButton.innerText = 'Done editing';
+                } else {
+                    editMyProfileButton.innerText = 'Edit my profile';
+                }
+                
+                for (let element of document.getElementsByName('profile-info-to-edit')){
+                    element.onkeypress = (event) => {
+                        if (event.key == 'Enter') {
+                            event.preventDefault();
+                        }
+                    }
+
+                     if (element.isContentEditable == false){
+                        element.contentEditable = true;
+                        element.classList.remove('non-editable');
+                        element.classList.add('editable');
+                     } else {
+                        element.contentEditable = false;
+                        element.classList.remove('editable');
+                        element.classList.add('non-editable');
+                     }
+                }
+            }
+
+            document.getElementById('edit-my-profile').onclick=toggleEdit;
+        </script>
+    </div>
+
+
+    <h2>My books</h2> <!-- guest view: John Doe's books -->
+    <div class="t-my-books">
+        <div class="t-book-listing">
+            <img src="images/book-cover.jpg">
+            <img src="images/book-cover.jpg">
+            <img src="images/book-cover.jpg">
+            <img src="images/book-cover.jpg">
+        </div>
+        <div class="t-pagination">
+            <button id="btn_prev">Previous</button>
+            <span id="page_span">1</span>
+            <button id="btn_next">Next</button>
+
+            <script type="text/javascript">
+                var current_page = 1;
+                var records_per_page = 4;
+
+                var objJson = [
+                    { Book: "Book 1"},
+                    { Book: "Book 2"},
+                    { Book: "Book 3"},
+                    { Book: "Book 4"},
+                    { Book: "Book 5"},
+                    { Book: "Book 6"},
+                    { Book: "Book 7"},
+                    { Book: "Book 8"},
+                    { Book: "Book 9"},
+                    { Book: "Book 10"}
+                ]; // Can be obtained from another source, such as your objJson variable
+
+                function prevPage()
+                {
+                    if (current_page > 1) {
+                        current_page--;
+                        changePage(current_page);
+                    }
+                }
+
+                function nextPage()
+                {
+                    if (current_page < numPages()) {
+                        current_page++;
+                        changePage(current_page);
+                    }
+                }
+                    
+                function changePage(page)
+                {
+                    var btn_next = document.getElementById("btn_next");
+                    var btn_prev = document.getElementById("btn_prev");
+                    var listing_table = document.getElementsByClassName("t-book-listing")[0];
+                    var page_span = document.getElementById("page_span");
+
+                    btn_next.onclick = nextPage;
+                    btn_prev.onclick = prevPage;
+                 
+                    // Validate page
+                    if (page < 1) page = 1;
+                    if (page > numPages()) page = numPages();
+
+                    listing_table.innerHTML = "";
+
+                    for (var i = (page-1) * records_per_page; i < (page * records_per_page); i++) {
+                        if (i >= objJson.length) break;  //last page may not have enough items like previous pages
+                        listing_table.innerHTML += objJson[i].Book + "<br>";
+                    }
+                    page_span.innerHTML = 'Current page: ' + page;
+
+                    if (page == 1) {
+                        btn_prev.style.visibility = "hidden";
+                    } else {
+                        btn_prev.style.visibility = "visible";
+                    }
+
+                    if (page == numPages()) {
+                        btn_next.style.visibility = "hidden";
+                    } else {
+                        btn_next.style.visibility = "visible";
+                    }
+                }
+
+                function numPages()
+                {
+                    return Math.ceil(objJson.length / records_per_page);
+                }
+
+                window.onload = function() {
+                    changePage(1);
+                };
+
+
+            </script>
+        </div>
+    </div>
+
+    <h2>About me</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum in est sed sollicitudin. Pellentesque venenatis malesuada sapien, a tempor ipsum. Proin cursus ante vitae purus tempor cursus. Vivamus sit amet varius ex, eleifend sodales lectus. Etiam convallis dapibus ornare. Nullam nec dolor a nisi accumsan dapibus. Proin sagittis sem nulla, id tempus diam mollis non. Mauris in massa id velit sagittis mattis non id mauris. Etiam leo neque, sollicitudin sed libero sit amet, consectetur ullamcorper urna. Mauris eros enim, pharetra et elit eu, placerat blandit ipsum. Vestibulum iaculis purus ut ipsum accumsan commodo. Mauris tristique laoreet elit non scelerisque. Maecenas nec accumsan nibh, in tincidunt nunc. Aenean lorem lectus, semper eu ipsum et, posuere lobortis ligula. Nunc justo nibh, euismod a tincidunt et, tincidunt nec enim. Fusce id tellus vitae ipsum mollis malesuada</p>
+
+    <h2>Latest Reviews</h2>
+    <table>
+        <tr>
+            <td>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </td>
+            <td>
+                Excellent. He is a true book lover. The book is carefully used
+            </td>
+            <td>
+                <span class="fa fa-user"></span>
+                Zoralth
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </td>
+            <td>
+                There was a little misunderstanding at first. Then everything went well
+            </td>
+            <td>
+                <span class="fa fa-user"></span>
+                Billy the Kid
+            </td>
+        </tr>
+    </table>
+    
+    <button>View My Exchange History</button>
+    <!-- END thuc:profile page -->
+>>>>>>> 27cc29a880822cf9618fe6d0e17398b9ee57d8b6
 </body>
 </html>
