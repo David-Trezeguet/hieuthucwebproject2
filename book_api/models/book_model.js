@@ -1,28 +1,44 @@
-const db = require('../database');
+const db = require('../database.js');
 
 const book = {
-  getById: function(id, callback) {
-    return db.query('select * from book where id_book=?', [id], callback);
-  },
-  getAll: function(callback) {
-    return db.query('select * from book', callback);
-  },
-  add: function(book, callback) {
-    return db.query(
-      'insert into book (name,author,isbn) values(?,?,?)',
-      [book.name, book.author, book.isbn],
-      callback
-    );
-  },
-  delete: function(id, callback) {
-    return db.query('delete from book where id_book=?', [id], callback);
-  },
-  update: function(id, book, callback) {
-    return db.query(
-      'update book set name=?,author=?, isbn=? where id_book=?',
-      [book.name, book.author, book.isbn, id],
-      callback
-    );
-  }
-};
+    get: (idbook, callback) => {
+        if ( idbook ) { 
+            db.query(
+                'select * from book inner join `member` on book.idmember=`member`.idmember where idbook=?',
+                [idbook],
+                callback
+            );
+        } else {
+            console.log("\x1b[31m", 'getAllBooksByMember ERROR: idmember not found!!!', "\x1b[0m");  // red color -> message -> reset color
+            return;
+        }
+    },
+
+    getByMember: (idmember, callback) => {
+        if ( idmember ) { 
+            db.query(
+                'select * from book where idmember=?',
+                [idmember],
+                callback
+            );
+        } else {
+            console.log("\x1b[31m", 'getAllBooksByMember ERROR: idmember not found!!!', "\x1b[0m");  // red color -> message -> reset color
+            return;
+        }
+    }, 
+
+    add: (book, callback) => {
+        if ( book && Object.keys(book).length > 0 ) {  
+            db.query(
+                'insert into book(title, idmember) values(?, ?)',
+                [book.title, book.idmember],
+                callback
+            );
+        } else {
+            console.log("\x1b[31m", 'ERROR: empty POST body!!!', "\x1b[0m");  // red color -> message -> reset color
+            return;
+        }
+    }
+}
+
 module.exports = book;

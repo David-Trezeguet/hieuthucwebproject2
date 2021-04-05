@@ -5,13 +5,22 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var signupRouter = require('./routes/signup');
+var loginRouter = require('./routes/login');
+var homeRouter = require('./routes/home');
+var bookRouter = require('./routes/book');
+var messageRouter = require('./routes/message');
+
+var carRouter = require('./routes/car');
+var carownerRouter = require('./routes/carowner.js');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -20,7 +29,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/signup', signupRouter);
+app.use('/login', loginRouter);
+app.use('/home', homeRouter);
+app.use('/book', bookRouter);
+app.use('/message', messageRouter);
+
+app.use('/car', carRouter);
+app.use('/carowner', carownerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -39,3 +55,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
