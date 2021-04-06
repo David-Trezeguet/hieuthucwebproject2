@@ -8,73 +8,7 @@
     <title>BookExchange | Welcome to BookExchange</title>
 </head>
 <body>
-    <!-- START thuc:login update data validation -->
-    Log In. If you already have a BookExchange profile, please log in.
-    <form name="loginForm" action='/login' method="POST" onsubmit="return validateForm()">    
-        <p><label>Email</label></p>
-        <p><input type="email" name="email" onblur="validate(this)"
-              onfocus="removeValidatingNotification(this)"></p>
-        <p><label>Password</label></p>
-        <p><input type="password" name="password" onblur="validate(this)"
-              onfocus="removeValidatingNotification(this)"></p>
-          <script type="text/javascript">
-              function validate(obj) {
-                  removeValidatingNotification(obj);
-
-                  if (obj.value.trim() == "") {
-                    const notificationElement = document.createElement('p');
-                    notificationElement.innerText = "Please enter your " + obj.name + ".";
-                    notificationElement.style.color = 'red';
-                    notificationElement.id = obj.name + '-validating-notification';
-                    obj.parentNode.append(notificationElement);
-                    return false;
-                  }
-
-                  return true;
-              }
-
-              function removeValidatingNotification(obj) {
-                const x = document.getElementById(obj.name + '-validating-notification');
-                if(x) x.remove();
-              }
-
-              function validateForm() {
-                return validate(document.forms.loginForm["email"]) && validate(document.forms.loginForm["password"]);
-              }
-          </script>
-
-        <input type="submit" name="" value="Log In">
-        
-        <p>Do not have account yet?</p>
-        <p><input type="button" name="" value="Create account" onclick="window.location.href='/signup'"></p>
-
-    </form>
-    <!-- END thuc:login update data validation -->
-
-    <!-- START thuc:signup update data validation -->
-    Welcome to BookExchange!<br>
-    To start your journey you need to register.
-    <form name="signupForm" action="/signup" method="POST" onsubmit="return validateForm2()">
-        <p><label>Name</label><input type="text" name="name" onblur="validate(this)"
-              onfocus="removeValidatingNotification(this)"></p>
-        <p><label>Surname</label><input type="text" name="surname"></p>
-        <p><label>Email</label><input type="email" name="email" onblur="validate(this)"
-              onfocus="removeValidatingNotification(this)"></p>
-        <p><label>Country</label><input type="text" name="country"></p>
-        <p><label>City</label><input type="text" name="city"></p>
-        <p><label>Street</label><input type="text" name="street"></p>
-        <p><label>Postal code</label><input type="text" name="postal code"></p>
-        
-        <p><label>Set up your password</label></p>
-        <p><input type="password" name="password" onblur="validate(this)"
-              onfocus="removeValidatingNotification(this)"></p>
-        <p><label>Please re-type your password</label></p>
-        <p><input type="password" name="password2" onfocus="removeValidatingNotification(this)"></p>
-
-        <input type="submit" name="" value="Create account">
-    </form>
-<<<<<<< HEAD
-    <!-- END thuc:signup -->
+<!-- main page -->
 
     <!-- START thuc:header -->
     <a href="/"><img src="/images/logo.png"></a>
@@ -122,6 +56,136 @@
       <button>Sent message</button>
     </div>
     <!-- END Anastasiia: search result-->
+    
+    <!-- footer -->
+    <div class="footer">
+        <hr>
+            <div class="footer-collumn">
+                <div class="footer-collumna">
+                    <div class="footer-collumna-top">
+                        <h3>CONTACT US</h3>
+                    </div>
+                    <ul class="footer-collumna-bottom">
+                        <li>
+                            <a href="" class="">
+                                <i class="fas fa-phone-volume"></i>
+                                <span id="phone">&nbsp;0909 123 456 <sub>(Free)</sub></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="">
+                                <i class="far fa-envelope"></i>
+                                <span>team3@students.oamk.fi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="">
+                                <i class="fas fa-home"></i>
+                                <span class="home address">Yliopistokatu 9, 90570 OULU 90570 Oulu, Finland</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-collumnb">
+                    <div class="footer-collumnb-top">
+                        <h3>INFORMATION</h3>
+                    </div>
+                    <ul class="footer-collumnb-bottom">
+                        <li><a href="" class="">About us</a></li>
+                        <li><a href="" class="">Exchanging Guide</a></li>
+                        <li><a href="" class="">Transportation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-collumnc">
+                    <div class="footer-collumnc-top">
+                        <h3>WHERE TO FIND US</h3>
+                    </div>
+                    <div class="footer-collumnc-bottom">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1682.2676912167033!2d25.469971516233894!3d65.06181808401735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46802d052d06ce85%3A0xd4acaa362bd64910!2sYliopistokatu%209%2C%2090570%20Oulu%2C%20Ph%E1%BA%A7n%20Lan!5e0!3m2!1svi!2s!4v1607357770203!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </hr>
+        <div class="footer-end">
+            <span>© 2020 TEAM3. All rights reserved.</span>
+        </div>
+    </div>
+    <!-- end of footer -->
+
+<!-- login --> 
+
+    <!-- START thuc:login update data validation -->
+    Log In. If you already have a BookExchange profile, please log in.
+    <form name="loginForm" action='/login' method="POST" onsubmit="return validateForm()">    
+        <p><label>Email</label></p>
+        <p><input type="email" name="email" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+        <p><label>Password</label></p>
+        <p><input type="password" name="password" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+          <script type="text/javascript">
+              function validate(obj) {
+                  removeValidatingNotification(obj);
+
+                  if (obj.value.trim() == "") {
+                    const notificationElement = document.createElement('p');
+                    notificationElement.innerText = "Please enter your " + obj.name + ".";
+                    notificationElement.style.color = 'red';
+                    notificationElement.id = obj.name + '-validating-notification';
+                    obj.parentNode.append(notificationElement);
+                    return false;
+                  }
+
+                  return true;
+              }
+
+              function removeValidatingNotification(obj) {
+                const x = document.getElementById(obj.name + '-validating-notification');
+                if(x) x.remove();
+              }
+
+              function validateForm() {
+                return validate(document.forms.loginForm["email"]) && validate(document.forms.loginForm["password"]);
+              }
+          </script>
+
+        <input type="submit" name="" value="Log In">
+        
+        <p>Do not have account yet?</p>
+        <p><input type="button" name="" value="Create account" onclick="window.location.href='/signup'"></p>
+
+    </form>
+    <!-- END thuc:login update data validation -->
+
+<!-- sign up -->
+
+    <!-- START thuc:signup update data validation -->
+    Welcome to BookExchange!<br>
+    To start your journey you need to register.
+    <form name="signupForm" action="/signup" method="POST" onsubmit="return validateForm2()">
+        <p><label>Name</label><input type="text" name="name" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+        <p><label>Surname</label><input type="text" name="surname"></p>
+        <p><label>Email</label><input type="email" name="email" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+        <p><label>Country</label><input type="text" name="country"></p>
+        <p><label>City</label><input type="text" name="city"></p>
+        <p><label>Street</label><input type="text" name="street"></p>
+        <p><label>Postal code</label><input type="text" name="postal code"></p>
+        
+        <p><label>Set up your password</label></p>
+        <p><input type="password" name="password" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+        <p><label>Please re-type your password</label></p>
+        <p><input type="password" name="password2" onfocus="removeValidatingNotification(this)"></p>
+
+        <input type="submit" name="" value="Create account">
+    </form>
+    <!-- END thuc:signup -->
+
+
+
+<!-- detail page -->
 
     <!-- Hieu detail page -->
     <div class="web">
@@ -193,110 +257,10 @@
               <p>London spent almost a year in the Yukon, and his observations form much of the material for the book. The story was serialized in The Saturday Evening Post in the summer of 1903 and was published later that year in book form. The book's great popularity and success made a reputation for London. As early as 1923, the story was adapted to film, and it has since seen several more cinematic adaptations.</p>
           </div>  
       </div>
-
-      <!-- footer -->
-      <div class="footer">
-      <hr>
-      <div class="footer-collumn">
-          <div class="footer-collumna">
-              <div class="footer-collumna-top">
-                  <h3>CONTACT US</h3>
-              </div>
-              <ul class="footer-collumna-bottom">
-                  <li>
-                      <a href="" class="">
-                          <i class="fas fa-phone-volume"></i>
-                          <span id="phone">&nbsp;0909 123 456 <sub>(Free)</sub></span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="" class="">
-                          <i class="far fa-envelope"></i>
-                          <span>team3@students.oamk.fi</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="" class="">
-                          <i class="fas fa-home"></i>
-                          <span class="home address">Yliopistokatu 9, 90570 OULU 90570 Oulu, Finland</span>
-                      </a>
-                  </li>
-              </ul>
-          </div>
-          <div class="footer-collumnb">
-              <div class="footer-collumnb-top">
-                  <h3>INFORMATION</h3>
-              </div>
-              <ul class="footer-collumnb-bottom">
-                  <li><a href="" class="">About us</a></li>
-                  <li><a href="" class="">Exchanging Guide</a></li>
-                  <li><a href="" class="">Transportation</a></li>
-              </ul>
-          </div>
-          <div class="footer-collumnc">
-              <div class="footer-collumnc-top">
-                  <h3>WHERE TO FIND US</h3>
-              </div>
-              <div class="footer-collumnc-bottom">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1682.2676912167033!2d25.469971516233894!3d65.06181808401735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46802d052d06ce85%3A0xd4acaa362bd64910!2sYliopistokatu%209%2C%2090570%20Oulu%2C%20Ph%E1%BA%A7n%20Lan!5e0!3m2!1svi!2s!4v1607357770203!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-              </div>
-          </div>
-      </div>
-      <hr>
-      <div class="footer-end">
-          <span>© 2020 TEAM3. All rights reserved.</span>
-      </div>
-      </div>
-  </div>
     <!-- Hieu detail page end -->
-=======
-    <script type="text/javascript">
-        function validate(obj) {
-            removeValidatingNotification(obj);
 
-            if (obj.value.trim() == "") {
-              const notificationElement = document.createElement('p');
-              notificationElement.innerText = "Please enter your " + obj.name + ".";
-              notificationElement.style.color = 'red';
-              notificationElement.id = obj.name + '-validating-notification';
-              obj.parentNode.append(notificationElement);
-              return false;
-            }
 
-            return true;
-        }
-
-        function removeValidatingNotification(obj) {
-          const x = document.getElementById(obj.name + '-validating-notification');
-          if(x) x.remove();
-        }
-
-        function validatePasswordMatch(){
-          const pw = document.forms.signupForm["password"];
-          const pw2 = document.forms.signupForm["password2"];
-
-          removeValidatingNotification(pw2);
-
-          if (pw2.value != pw.value){
-              const notificationElement = document.createElement('p');
-              notificationElement.innerText = "Your password does not match. Please try again.";
-              notificationElement.style.color = 'red';
-              notificationElement.id = pw2.name + '-validating-notification';
-              pw2.parentNode.append(notificationElement);
-              return false;
-          }
-
-          return true;
-        }
-
-        function validateForm2() {
-          return validate(document.forms.signupForm["name"])
-              && validate(document.forms.signupForm["email"])
-              && validate(document.forms.signupForm["password"])
-              && validatePasswordMatch();
-        }
-    </script>
-    <!-- END thuc:signup update data validation -->
+<!-- profile page -->
 
     <!-- START thuc:profile page -->
     <div class="t-profile-information">
@@ -325,54 +289,7 @@
                 <span class="fa fa-star-half checked"></span>
             </label>
         </div>
-        <style type="text/css">
-            .editable {
-                border: 1px solid black;
-                padding: 0px 10px;
-                cursor: text;
-                color: red;
-            }
-
-            .non-editable {
-                border: none;
-                padding: none;
-                cursor: default;
-                color: black;
-            }
-        </style>
-        <script type="text/javascript">
-            function toggleEdit() {
-                let editMyProfileButton = document.getElementById('edit-my-profile');
-
-                if (editMyProfileButton.innerText == 'Edit my profile'){  //contentEditable == false
-                    editMyProfileButton.innerText = 'Done editing';
-                } else {
-                    editMyProfileButton.innerText = 'Edit my profile';
-                }
-                
-                for (let element of document.getElementsByName('profile-info-to-edit')){
-                    element.onkeypress = (event) => {
-                        if (event.key == 'Enter') {
-                            event.preventDefault();
-                        }
-                    }
-
-                     if (element.isContentEditable == false){
-                        element.contentEditable = true;
-                        element.classList.remove('non-editable');
-                        element.classList.add('editable');
-                     } else {
-                        element.contentEditable = false;
-                        element.classList.remove('editable');
-                        element.classList.add('non-editable');
-                     }
-                }
-            }
-
-            document.getElementById('edit-my-profile').onclick=toggleEdit;
-        </script>
     </div>
-
 
     <h2>My books</h2> <!-- guest view: John Doe's books -->
     <div class="t-my-books">
@@ -386,86 +303,6 @@
             <button id="btn_prev">Previous</button>
             <span id="page_span">1</span>
             <button id="btn_next">Next</button>
-
-            <script type="text/javascript">
-                var current_page = 1;
-                var records_per_page = 4;
-
-                var objJson = [
-                    { Book: "Book 1"},
-                    { Book: "Book 2"},
-                    { Book: "Book 3"},
-                    { Book: "Book 4"},
-                    { Book: "Book 5"},
-                    { Book: "Book 6"},
-                    { Book: "Book 7"},
-                    { Book: "Book 8"},
-                    { Book: "Book 9"},
-                    { Book: "Book 10"}
-                ]; // Can be obtained from another source, such as your objJson variable
-
-                function prevPage()
-                {
-                    if (current_page > 1) {
-                        current_page--;
-                        changePage(current_page);
-                    }
-                }
-
-                function nextPage()
-                {
-                    if (current_page < numPages()) {
-                        current_page++;
-                        changePage(current_page);
-                    }
-                }
-                    
-                function changePage(page)
-                {
-                    var btn_next = document.getElementById("btn_next");
-                    var btn_prev = document.getElementById("btn_prev");
-                    var listing_table = document.getElementsByClassName("t-book-listing")[0];
-                    var page_span = document.getElementById("page_span");
-
-                    btn_next.onclick = nextPage;
-                    btn_prev.onclick = prevPage;
-                 
-                    // Validate page
-                    if (page < 1) page = 1;
-                    if (page > numPages()) page = numPages();
-
-                    listing_table.innerHTML = "";
-
-                    for (var i = (page-1) * records_per_page; i < (page * records_per_page); i++) {
-                        if (i >= objJson.length) break;  //last page may not have enough items like previous pages
-                        listing_table.innerHTML += objJson[i].Book + "<br>";
-                    }
-                    page_span.innerHTML = 'Current page: ' + page;
-
-                    if (page == 1) {
-                        btn_prev.style.visibility = "hidden";
-                    } else {
-                        btn_prev.style.visibility = "visible";
-                    }
-
-                    if (page == numPages()) {
-                        btn_next.style.visibility = "hidden";
-                    } else {
-                        btn_next.style.visibility = "visible";
-                    }
-                }
-
-                function numPages()
-                {
-                    return Math.ceil(objJson.length / records_per_page);
-                }
-
-                window.onload = function() {
-                    changePage(1);
-                };
-
-
-            </script>
         </div>
     </div>
 
@@ -510,59 +347,57 @@
     
     <button>View My Exchange History</button>
     <!-- END thuc:profile page -->
->>>>>>> 27cc29a880822cf9618fe6d0e17398b9ee57d8b6
     
 <!--   popup - signup - Hieu   -->
-                    <button class="signup-button" onclick="openSignupForm()">Sign up</button>
+    <button class="signup-button" onclick="openSignupForm()">Sign up</button>
+        <div class="popup-signup-form" id="signupForm">
+            <!-- <form action="/action_page.php" class="signup-form"> -->
+            <form class="signup-form">
+                <h2>Welcome to BookExchange! 
+                    To start your journey you need to register.</h2>
     
-                <div class="popup-signup-form" id="signupForm">
-                    <!-- <form action="/action_page.php" class="signup-form"> -->
-                    <form class="signup-form">
-                        <h2>Welcome to BookExchange! 
-                            To start your journey you need to register.</h2>
-            
-                        <div>
-                            <label><b>Name</b></label>
-                            <input type="text" placeholder="Enter Name" required>
-                        </div>
-                        <div>
-                            <label><b>Surname</b></label>
-                            <input type="text" placeholder="Enter Surname" required>
-                        </div>
-                        <div>
-                            <label><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" required>
-                        </div>
-                        <div>
-                            <label><b>Country</b></label>
-                            <input type="text" placeholder="Enter Country" required>
-                        </div>
-                        <div>
-                            <label><b>City</b></label>
-                            <input type="text" placeholder="Enter City" required>
-                        </div>
-                        <div>
-                            <label><b>Street</b></label>
-                            <input type="text" placeholder="Enter Street" required>
-                        </div>
-                        <div>
-                            <label><b>Postal code</b></label>
-                            <input type="text" placeholder="Enter Postal code" required>
-                        </div>
-
-                        <div>
-                            <label><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" name="psw" required>
-                        </div>
-                        <div>
-                            <label><b>Confirm password</b></label>
-                            <input type="password" placeholder="Confirm Password" name="psw" required>
-                        </div>
-
-                        <button type="submit" class="btn signup">Create your account</button>
-                        <button type="button" class="btn cancel" onclick="closeSignupForm()">Close</button>
-                    </form>
+                <div>
+                    <label><b>Name</b></label>
+                    <input type="text" placeholder="Enter Name" required>
                 </div>
-<!--   popup - signup - Hieu - END  -->
+                <div>
+                    <label><b>Surname</b></label>
+                    <input type="text" placeholder="Enter Surname" required>
+                </div>
+                <div>
+                    <label><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" required>
+                </div>
+                <div>
+                    <label><b>Country</b></label>
+                    <input type="text" placeholder="Enter Country" required>
+                </div>
+                <div>
+                    <label><b>City</b></label>
+                    <input type="text" placeholder="Enter City" required>
+                </div>
+                <div>
+                    <label><b>Street</b></label>
+                    <input type="text" placeholder="Enter Street" required>
+                </div>
+                <div>
+                    <label><b>Postal code</b></label>
+                    <input type="text" placeholder="Enter Postal code" required>
+                </div>
+
+                <div>
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+                <div>
+                    <label><b>Confirm password</b></label>
+                    <input type="password" placeholder="Confirm Password" name="psw" required>
+                </div>
+
+                <button type="submit" class="btn signup">Create your account</button>
+                <button type="button" class="btn cancel" onclick="closeSignupForm()">Close</button>
+            </form>
+        </div>
+    <!--   popup - signup - Hieu - END  -->
 </body>
 </html>

@@ -338,3 +338,20 @@ div.footer-collumnc-top, .footer-collumnc-bottom {
 }
 
 /* Hieu - popup - sign up - END*/
+
+
+/* profile page */
+
+.editable {
+    border: 1px solid black;
+    padding: 0px 10px;
+    cursor: text;
+    color: red;
+}
+
+.non-editable {
+    border: none;
+    padding: none;
+    cursor: default;
+    color: black;
+}
