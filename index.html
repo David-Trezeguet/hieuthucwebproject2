@@ -511,5 +511,58 @@
     <button>View My Exchange History</button>
     <!-- END thuc:profile page -->
 >>>>>>> 27cc29a880822cf9618fe6d0e17398b9ee57d8b6
+    
+<!--   popup - signup - Hieu   -->
+                    <button class="signup-button" onclick="openSignupForm()">Sign up</button>
+    
+                <div class="popup-signup-form" id="signupForm">
+                    <!-- <form action="/action_page.php" class="signup-form"> -->
+                    <form class="signup-form">
+                        <h2>Welcome to BookExchange! 
+                            To start your journey you need to register.</h2>
+            
+                        <div>
+                            <label><b>Name</b></label>
+                            <input type="text" placeholder="Enter Name" required>
+                        </div>
+                        <div>
+                            <label><b>Surname</b></label>
+                            <input type="text" placeholder="Enter Surname" required>
+                        </div>
+                        <div>
+                            <label><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email" required>
+                        </div>
+                        <div>
+                            <label><b>Country</b></label>
+                            <input type="text" placeholder="Enter Country" required>
+                        </div>
+                        <div>
+                            <label><b>City</b></label>
+                            <input type="text" placeholder="Enter City" required>
+                        </div>
+                        <div>
+                            <label><b>Street</b></label>
+                            <input type="text" placeholder="Enter Street" required>
+                        </div>
+                        <div>
+                            <label><b>Postal code</b></label>
+                            <input type="text" placeholder="Enter Postal code" required>
+                        </div>
+
+                        <div>
+                            <label><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+                        </div>
+                        <div>
+                            <label><b>Confirm password</b></label>
+                            <input type="password" placeholder="Confirm Password" name="psw" required>
+                        </div>
+
+                        <button type="submit" class="btn signup">Create your account</button>
+                        <button type="button" class="btn cancel" onclick="closeSignupForm()">Close</button>
+                    </form>
+                </div>
+<!--   popup - signup - Hieu - END  -->
 </body>
 </html>
