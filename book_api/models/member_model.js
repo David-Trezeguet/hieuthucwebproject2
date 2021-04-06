@@ -1,8 +1,8 @@
 const db = require('../database.js');
 
-const home = {
+const member = {
     noname: (username, passwordhash, callback) => {
-        db.query('select * from `member` where idmember in (select idmember from `login` where username=? and passwordhash=?)', 
+        db.query('select * from member where idmember in (select idmember from login where username=? and passwordhash=?)', 
             [username, passwordhash],
             callback);
         console.log(username, passwordhash);
@@ -11,4 +11,4 @@ const home = {
     
 }
 
-module.exports = home;
+module.exports = member;
