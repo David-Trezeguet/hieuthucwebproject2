@@ -8,6 +8,108 @@
     <title>BookExchange | Welcome to BookExchange</title>
 </head>
 <body>
+    <!-- START thuc:header -->
+    <a href="/"><img src="/images/logo.png"></a>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/signup">Sign Up</a></li>
+      <li><a href="/login">Log In</a></li>
+    </ul>
+    <!-- END thuc:header -->
+
+    <!-- START Anastasiia: body-->
+    <!-- body of the main page -->
+    <p>Welcome to the book exchange platform!</p>
+    <p>Here you can give away your old books and find new ones.</p>
+    <!--Search  https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit-->
+    <form>
+        <label for="Title">Book title:</label><br>
+        <input type="text" id="Title"><br>
+        <label for="Author">Book author:</label><br>
+        <input type="text" id="Author">
+    </form>
+    <button>See latest posted books</button>
+    <!--Create account sugestion-->
+    <p>And do not forget to share your books</p>
+    <button>Create account</button>
+    <!--About project (here should be sent when clicking "about" in header)-->
+    <h1>How does it work</h1>
+    <p>You search for the book<br>
+        <i class="fas fa-search"></i>
+    </p>
+    <p>Agree with the owner<br>
+        <i class="far fa-handshake"></i>
+    </p>
+    <p>Share books you want to give away<br>
+        <i class="fas fa-recycle"></i>
+    </p>
+    <!-- END Anastasiia: body-->
+
+    <!-- START Anastasiia: search result-->
+    <div id="SearchResultBox">
+      <img>
+      <p>Title</p>
+      <p>Author, year</p>
+      <p>Description</p>
+      <button>Sent message</button>
+    </div>
+    <!-- END Anastasiia: search result-->
+    
+    <!-- footer -->
+    <div class="footer">
+        <hr>
+            <div class="footer-collumn">
+                <div class="footer-collumna">
+                    <div class="footer-collumna-top">
+                        <h3>CONTACT US</h3>
+                    </div>
+                    <ul class="footer-collumna-bottom">
+                        <li>
+                            <a href="" class="">
+                                <i class="fas fa-phone-volume"></i>
+                                <span id="phone">&nbsp;0909 123 456 <sub>(Free)</sub></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="">
+                                <i class="far fa-envelope"></i>
+                                <span>team3@students.oamk.fi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="">
+                                <i class="fas fa-home"></i>
+                                <span class="home address">Yliopistokatu 9, 90570 OULU 90570 Oulu, Finland</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-collumnb">
+                    <div class="footer-collumnb-top">
+                        <h3>INFORMATION</h3>
+                    </div>
+                    <ul class="footer-collumnb-bottom">
+                        <li><a href="" class="">About us</a></li>
+                        <li><a href="" class="">Exchanging Guide</a></li>
+                        <li><a href="" class="">Transportation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-collumnc">
+                    <div class="footer-collumnc-top">
+                        <h3>WHERE TO FIND US</h3>
+                    </div>
+                    <div class="footer-collumnc-bottom">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1682.2676912167033!2d25.469971516233894!3d65.06181808401735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46802d052d06ce85%3A0xd4acaa362bd64910!2sYliopistokatu%209%2C%2090570%20Oulu%2C%20Ph%E1%BA%A7n%20Lan!5e0!3m2!1svi!2s!4v1607357770203!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </hr>
+        <div class="footer-end">
+            <span>© 2020 TEAM3. All rights reserved.</span>
+        </div>
+    </div>
+<!-- end of footer -->
+
     <!-- START thuc:login update data validation -->
     Log In. If you already have a BookExchange profile, please log in.
     <form name="loginForm" action='/login' method="POST" onsubmit="return validateForm()">    
@@ -73,56 +175,9 @@
 
         <input type="submit" name="" value="Create account">
     </form>
-<<<<<<< HEAD
     <!-- END thuc:signup -->
 
-    <!-- START thuc:header -->
-    <a href="/"><img src="/images/logo.png"></a>
-    <ul>
-      <li><a href="/about">About</a></li>
-      <li><a href="/signup">Sign Up</a></li>
-      <li><a href="/login">Log In</a></li>
-    </ul>
-    <!-- END thuc:header -->
-
-    <!-- START Anastasiia: body-->
-    <!-- body of the main page -->
-    <p>Welcome to the book exchange platform!</p>
-    <p>Here you can give away your old books and find new ones.</p>
-    <!--Search  https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit-->
-    <form>
-        <label for="Title">Book title:</label><br>
-        <input type="text" id="Title"><br>
-        <label for="Author">Book author:</label><br>
-        <input type="text" id="Author">
-    </form>
-    <button>See latest posted books</button>
-    <!--Create account sugestion-->
-    <p>And do not forget to share your books</p>
-    <button>Create account</button>
-    <!--About project (here should be sent when clicking "about" in header)-->
-    <h1>How does it work</h1>
-    <p>You search for the book<br>
-        <i class="fas fa-search"></i>
-    </p>
-    <p>Agree with the owner<br>
-        <i class="far fa-handshake"></i>
-    </p>
-    <p>Share books you want to give away<br>
-        <i class="fas fa-recycle"></i>
-    </p>
-    <!-- END Anastasiia: body-->
-
-    <!-- START Anastasiia: search result-->
-    <div id="SearchResultBox">
-      <img>
-      <p>Title</p>
-      <p>Author, year</p>
-      <p>Description</p>
-      <button>Sent message</button>
-    </div>
-    <!-- END Anastasiia: search result-->
-
+    
     <!-- Hieu detail page -->
     <div class="web">
       <!-- header -->
@@ -194,60 +249,7 @@
           </div>  
       </div>
 
-      <!-- footer -->
-      <div class="footer">
-      <hr>
-      <div class="footer-collumn">
-          <div class="footer-collumna">
-              <div class="footer-collumna-top">
-                  <h3>CONTACT US</h3>
-              </div>
-              <ul class="footer-collumna-bottom">
-                  <li>
-                      <a href="" class="">
-                          <i class="fas fa-phone-volume"></i>
-                          <span id="phone">&nbsp;0909 123 456 <sub>(Free)</sub></span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="" class="">
-                          <i class="far fa-envelope"></i>
-                          <span>team3@students.oamk.fi</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="" class="">
-                          <i class="fas fa-home"></i>
-                          <span class="home address">Yliopistokatu 9, 90570 OULU 90570 Oulu, Finland</span>
-                      </a>
-                  </li>
-              </ul>
-          </div>
-          <div class="footer-collumnb">
-              <div class="footer-collumnb-top">
-                  <h3>INFORMATION</h3>
-              </div>
-              <ul class="footer-collumnb-bottom">
-                  <li><a href="" class="">About us</a></li>
-                  <li><a href="" class="">Exchanging Guide</a></li>
-                  <li><a href="" class="">Transportation</a></li>
-              </ul>
-          </div>
-          <div class="footer-collumnc">
-              <div class="footer-collumnc-top">
-                  <h3>WHERE TO FIND US</h3>
-              </div>
-              <div class="footer-collumnc-bottom">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1682.2676912167033!2d25.469971516233894!3d65.06181808401735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46802d052d06ce85%3A0xd4acaa362bd64910!2sYliopistokatu%209%2C%2090570%20Oulu%2C%20Ph%E1%BA%A7n%20Lan!5e0!3m2!1svi!2s!4v1607357770203!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-              </div>
-          </div>
-      </div>
-      <hr>
-      <div class="footer-end">
-          <span>© 2020 TEAM3. All rights reserved.</span>
-      </div>
-      </div>
-  </div>
+
     <!-- Hieu detail page end -->
 =======
     <script type="text/javascript">
@@ -510,7 +512,6 @@
     
     <button>View My Exchange History</button>
     <!-- END thuc:profile page -->
->>>>>>> 27cc29a880822cf9618fe6d0e17398b9ee57d8b6
     
 <!--   popup - signup - Hieu   -->
                     <button class="signup-button" onclick="openSignupForm()">Sign up</button>
