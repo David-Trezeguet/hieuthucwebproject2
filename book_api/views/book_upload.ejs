@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html2 lang="en">
+<head>
+    <%- include('./head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('./header'); %>
+</header>
+
+<main>
+
+  <h2>Upload a book info</h2>
+    <form action="/book/add" method="POST">
+      <label>Book title: </label>
+      <input type="text" name="title">
+      <script type="text/javascript">
+        const idmemberElem = document.createElement('input');
+        idmemberElem.type = 'hidden';
+        idmemberElem.name = 'idmember';
+        idmemberElem.value = localStorage.getItem('idmember');
+        document.currentScript.parentNode.appendChild(idmemberElem);
+      </script>
+      <input type="submit">
+    </form>
+
+</main>
+
+<footer>
+    <%- include('./footer'); %>
+</footer>
+
+
+</body>
+</html>

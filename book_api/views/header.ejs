@@ -1,0 +1,19 @@
+<a href="/"><img src="/images/logo.png"></a>
+<ul>
+  <li><a href="/about">About</a></li>
+  <li><a href="/signup">Sign Up</a></li>
+  <li><a href="/login">Log In</a></li>
+</ul>
+
+
+<% if (locals.isAuthorized) { %>
+  <script type="text/javascript">
+    const headerElem = document.body.getElementsByTagName('header')[0];
+    if ( localStorage.getItem('idmember') ) {
+      const fullName = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname');
+      headerElem.append(`Welcome, ${fullName}!`);
+    } else {
+      headerElem.append(`Please log in first!`);
+    }
+  </script>
+<% } %>

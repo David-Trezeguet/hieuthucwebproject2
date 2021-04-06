@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('./header'); %>
+</header>
+
+<main>
+    <% if (!locals.idmember) { %>
+      <!-- <p>Welcome to BookExchange. Please log in to continue.</p>
+      <p>Username: </p>
+      <input type="text" id="username">
+      <p>Password: </p>
+      <input type="password" id="password">
+      <p><button id="login">Login</button></p> -->
+    <% } %>
+</main>
+
+<footer>
+    <%- include('./footer'); %>
+</footer>
+
+
+
+</body>
+</html>
