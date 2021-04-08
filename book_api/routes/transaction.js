@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const carowner = require('../models/carowner_model.js');
+const transaction = require('../models/transaction_model.js');
 
-router.get('/cars', (req, res) => carowner.getCars(
+router.get('/members', (req, res) => transaction.getmembers(
     (err, dbResult) => err ? res.json(err) : res.json(dbResult) 
 ));
 
 router.get('/:id?', (req, res) => {
     if (!req.params.id) {
-        carowner.getAll( (err, dbResult) => err ? res.json(err) : res.json(dbResult) );
+        transaction.getAll( (err, dbResult) => err ? res.json(err) : res.json(dbResult) );
     } else {
-        carowner.getById( req.params.id, (err, dbResult) => err ? res.json(err) : res.json(dbResult[0]) );
+        transaction.getById( req.params.id, (err, dbResult) => err ? res.json(err) : res.json(dbResult[0]) );
     }
 });
 
 
-router.post('/', (req, res) => carowner.add(
+router.post('/', (req, res) => transaction.add(
     req.body, (err, dbResult) => {
         if (err) {
             res.json(err);
@@ -29,11 +29,11 @@ router.post('/', (req, res) => carowner.add(
     }
 ) );
 
-router.put('/:id', (req, res) => carowner.update(
+router.put('/:id', (req, res) => transaction.update(
     req.params.id, req.body, (err, dbResult) => err ? res.json(err) : res.json(dbResult) ) 
 );
 
-router.delete('/:id', (req, res) => carowner.delete(
+router.delete('/:id', (req, res) => transaction.delete(
     req.params.id, (err, dbResult) => err ? res.json(err) : res.send(`${dbResult.affectedRows} row(s) deleted.`) ) 
 );
 
