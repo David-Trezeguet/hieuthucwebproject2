@@ -11,9 +11,6 @@ var homeRouter = require('./routes/home');
 var bookRouter = require('./routes/book');
 var messageRouter = require('./routes/message');
 
-var carRouter = require('./routes/car');
-var carownerRouter = require('./routes/carowner.js');
-
 var app = express();
 
 // view engine setup
@@ -35,8 +32,6 @@ app.use('/home', homeRouter);
 app.use('/book', bookRouter);
 app.use('/message', messageRouter);
 
-app.use('/car', carRouter);
-app.use('/carowner', carownerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

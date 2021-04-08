@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('', (req, res) => {
-    login.get(req.body.email, req.body.password, (err, dbResult) => {
+    login.get(req.body.emailaddress, req.body.password, (err, dbResult) => {
         if (err) {
             res.json(err);
         } else {
@@ -16,7 +16,7 @@ router.post('', (req, res) => {
                 // res.redirect('/home?idmember=' + dbResult[0].idmember);  //redirect on client side
                 res.json(dbResult);
             } else {
-                res.send('Invalid email and/or password');
+                res.json( {success: false, message: 'Invalid username and/or password'} );
             }
         }
     });

@@ -1,7 +1,7 @@
 const db = require('../database.js');
 
 const signup = {
-    getAll: (callback) => db.query('select * from car order by idcar desc', callback),
+    get: (callback) => db.query('select * from car order by idcar desc', callback),
 
     getById: (id, callback) => {
         if (id) {  // id: string

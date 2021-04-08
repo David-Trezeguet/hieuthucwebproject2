@@ -1,10 +1,10 @@
 const db = require('../database.js');
 
 const login = {
-    get: (email, passwordhash, callback) => {
-        console.log(email, passwordhash);
-        db.query('select * from `member` where email=? and passwordhash=?', 
-            [email, passwordhash],
+    get: (emailaddress, password, callback) => {
+        console.log(emailaddress, password);
+        db.query('select * from `member` where emailaddress=? and password=?', 
+            [emailaddress, password],
             callback);
     },
 
