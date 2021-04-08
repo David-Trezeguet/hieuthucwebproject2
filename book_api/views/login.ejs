@@ -29,17 +29,20 @@
           const emailaddress = document.forms.loginForm.emailaddress.value;
           const password = document.forms.loginForm.password.value;
           console.log(emailaddress, password);
-          postData('/login', { email: emailaddress, password: password })
+          postData('/login', { emailaddress: emailaddress, password: password })
             .then(data => {
               console.log(data); // JSON data parsed by `data.json()` call
+              if ( data.success === false ) {
+                alert(data.message);
+                return
+              }
+
               localStorage.setItem('idmember', data[0].idmember);
               localStorage.setItem('firstname', data[0].firstname);
               localStorage.setItem('lastname', data[0].lastname);
               window.location.href = '/home?idmember=' + data[0].idmember;
             });
         }
-
-
 
         document.forms.loginForm.btn_login.onclick = login;
     </script>
