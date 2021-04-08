@@ -13,7 +13,7 @@
     Log In. If you already have a BookExchange profile, please log in.
     <form name="loginForm"> <!-- manually post via function -->
         <p><label>Email</label></p>
-        <p><input type="email" name="email"></p>
+        <p><input type="email" name="emailaddress"></p>
         <p><label>Password</label></p>
         <p><input type="password" name="password"></p>
 
@@ -26,10 +26,10 @@
 
     <script type="text/javascript">
         function login(){
-          const email = document.forms.loginForm.email.value;
+          const emailaddress = document.forms.loginForm.emailaddress.value;
           const password = document.forms.loginForm.password.value;
-          console.log(email, password);
-          postData('/login', { email: email, password: password })
+          console.log(emailaddress, password);
+          postData('/login', { email: emailaddress, password: password })
             .then(data => {
               console.log(data); // JSON data parsed by `data.json()` call
               localStorage.setItem('idmember', data[0].idmember);
