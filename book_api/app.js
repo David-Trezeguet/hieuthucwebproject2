@@ -10,9 +10,8 @@ var loginRouter = require('./routes/login');
 var homeRouter = require('./routes/home');
 var bookRouter = require('./routes/book');
 var messageRouter = require('./routes/message');
-
 var memberRouter = require('./routes/member');
-var transactionRouter = require('./routes/transaction.js');
+var transactionRouter = require('./routes/transaction');
 
 var app = express();
 
@@ -34,7 +33,6 @@ app.use('/login', loginRouter);
 app.use('/home', homeRouter);
 app.use('/book', bookRouter);
 app.use('/message', messageRouter);
-
 app.use('/member', memberRouter);
 app.use('/transaction', transactionRouter);
 
