@@ -1,19 +1,19 @@
 const db = require('../database.js');
 
 const signup = {
-    getAll: (callback) => db.query('select * from car order by idcar desc', callback),
+    getAll: (callback) => db.query('select * from `member` order by idmember desc', callback),
 
     getById: (id, callback) => {
         if (id) {  // id: string
-            db.query('select * from car where idcar=? order by idcar desc', [id], callback);
+            db.query('select * from `member` where idmember=? order by idmember desc', [id], callback);
         }
     },
 
-    add: (car, callback) => {
-        if ( car && Object.keys(car).length > 0 ) {  // car: object
+    add: (member, callback) => {
+        if ( member && Object.keys(member).length > 0 ) {  // member: object
             db.query(
-                'insert into car(brand, model, yearmodel) values(?,?,?)',
-                [car.brand, car.model, car.yearmodel],
+                'insert into member(firstname, lastname, emailaddress, password, address, phonenumber, creditscore, image) values(?,?,?,?,?,?,?,?)',
+                [member.firstname, member.lastname, member.emailaddress, member.password, member.address, member.phonenumber, member.creditscore, member.image],
                 callback
             );
         } else {
@@ -22,11 +22,11 @@ const signup = {
         }
     },
 
-    update: (id, car, callback) => {
-        if ( car && Object.keys(car).length > 0 ) {
+    update: (id, member, callback) => {
+        if ( member && Object.keys(member).length > 0 ) {
             db.query(
-                'update car set brand=?, model=?, yearmodel=? where idcar=?',
-                [car.brand, car.model, car.yearmodel, id],
+                'update member set firstname=?, lastname=?, emailaddress=?, password=?, address=?, phonenumber=?, creditscore=?, image=? where idmember=?',
+                [member.firstname, member.lastname, member.emailaddress,  member.password, member.address, member.phonenumber, member.creditscore, member.image, id],
                 callback
             )
         } else {
@@ -36,16 +36,16 @@ const signup = {
         }
     },
 
-    delete: (id, callback) => db.query('delete from car where idcar=?', [id], callback),
+    delete: (id, callback) => db.query('delete from `member` where idmember=?', [id], callback),
 
-    searchByBrand: (value, callback) => {
+    searchByfirstname: (value, callback) => {
         const likeString = `%${value}%`;
-        db.query('select * from car where brand like ?', [likeString], callback)
+        db.query('select * from `member` where firstname like ?', [likeString], callback)
     },
 
-    searchByModel: (value, callback) => {
+    searchBylastname: (value, callback) => {
         const likeString = `%${value}%`;
-        db.query('select * from car where model like ?', [likeString], callback)
+        db.query('select * from `member` where lastname like ?', [likeString], callback)
     }
 }
 
