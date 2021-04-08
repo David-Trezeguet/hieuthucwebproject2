@@ -11,8 +11,8 @@ var homeRouter = require('./routes/home');
 var bookRouter = require('./routes/book');
 var messageRouter = require('./routes/message');
 
-var carRouter = require('./routes/car');
-var carownerRouter = require('./routes/carowner.js');
+var memberRouter = require('./routes/member');
+var transactionRouter = require('./routes/transaction.js');
 
 var app = express();
 
@@ -35,8 +35,8 @@ app.use('/home', homeRouter);
 app.use('/book', bookRouter);
 app.use('/message', messageRouter);
 
-app.use('/car', carRouter);
-app.use('/carowner', carownerRouter);
+app.use('/member', memberRouter);
+app.use('/transaction', transactionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
