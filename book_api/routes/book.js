@@ -3,6 +3,7 @@ var router = express.Router();
 var book = require('../models/book_model.js');
 
 router.get('/:idbook', (req, res) => {
+    console.log('req.params.idbook:', req.params.idbook);
     book.get( req.params.idbook, (err, dbResult) => {
         if (err) {
             res.json(err);
