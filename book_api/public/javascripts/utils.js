@@ -17,3 +17,12 @@ async function postData(url = '', data = {}) {
   return response.json(); // parses JSON response into native JavaScript objects
 }
 
+
+function insertHiddenIdmemberTo(parent) {
+  const idmemberElem = document.createElement('input');
+  idmemberElem.type = 'hidden';
+  idmemberElem.name = 'idmember';
+  idmemberElem.value = localStorage.getItem('idmember');
+  parent.appendChild(idmemberElem);
+}
+  

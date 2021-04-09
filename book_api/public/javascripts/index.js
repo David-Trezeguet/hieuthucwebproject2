@@ -167,8 +167,6 @@
         return Math.ceil(objJson.length / records_per_page);
     }
 
-    window.onload = function() {
-        changePage(1);
-    };
+    
 
 // end of profile page
