@@ -256,22 +256,44 @@
 
 <!-- profile page -->
 
+<!-- START thuc:header -->
+<div class="header">
+    <a href="/"><img src="https://github.com/OAMK-DIN20SP/Web-programming-project-/blob/main/book_api/public/images/logo.PNG?raw=true"></a>
+    <a href="/about" style="right:300px">About</a>
+    <button href="/signup" style="right:200px; color:#AB9353; background-color:#fdfbf3">Sign Up</button>
+    <button href="/login" style="right:100px">Log In</button>
+    </div>
+    <!-- END thuc:header -->
+
     <!-- START thuc:profile page -->
     <div class="t-profile-information">
         <div class="t-left-panel-avatar-and-name">
-            <div class="t-avatar"><img src="./images/avatar.jpg"></div>
+            <div class="t-avatar"><img src="https://github.com/OAMK-DIN20SP/Web-programming-project-/blob/devAna/book_api/public/images/avatar.jpg?raw=true"></div>
             <!-- <div class="t-full-name">{member.firstname + ' ' + member.lastname}</div> -->
             <div class="t-full-name">John Doe</div>
             <button id="edit-my-profile">Edit my profile</button>
         </div>
-        <div class="t-right-panel-other-info">
-            <label>Full name</label><label class="non-editable" name="profile-info-to-edit" contentEditable="false">John Doe</label><hr>
-            <label>Email</label><label class="non-editable" name="profile-info-to-edit" contentEditable="false">doe.john.9600@gmail.com</label><hr>
-            <label>Phone</label><label class="non-editable" name="profile-info-to-edit" contentEditable="false">+358 20 6110 200</label><hr>
-            <label>Address</label><label class="non-editable" name="profile-info-to-edit" contentEditable="false">Pentti Kaiteran katu 1, 90570 Oulu</label><hr>
-
-            <label>Credit score</label>
-            <label>
+        <table class="t-right-panel-other-info">
+             <tr>
+                 <td><label>Full name </label></td>
+                 <td><label class="non-editable" name="profile-info-to-edit" contentEditable="false">John Doe</label></td>
+             </tr>
+             
+             <tr>
+                 <td><label>Email </label></td>
+                 <td><label class="non-editable" name="profile-info-to-edit" contentEditable="false">doe.john.9600@gmail.com</label></td>
+             </tr>
+             <tr> 
+                 <td><label>Phone </label></td>
+                 <td><label class="non-editable" name="profile-info-to-edit" contentEditable="false">+358 20 6110 200</label></td>
+             </tr>
+             <tr>
+                 <td><label>Address </label></td>
+                 <td><label class="non-editable" name="profile-info-to-edit" contentEditable="false"> Pentti Kaiteran katu 1, 90570 Oulu</label></td>
+             </tr>
+             <tr>
+            <td><label>Credit score</label></td>
+            <td><label>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                 <style type="text/css">
                     .fa-star.checked, .fa-star-half.checked { color: orange; }
@@ -281,14 +303,15 @@
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star-half checked"></span>
-            </label>
-        </div>
+            </label></td>
+            </tr>
+        </table>
     </div>
 
     <h2>My books</h2> <!-- guest view: John Doe's books -->
     <div class="t-my-books">
         <div class="t-book-listing">
-            <img src="images/book-cover.jpg">
+            <img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg">
             <img src="images/book-cover.jpg">
             <img src="images/book-cover.jpg">
             <img src="images/book-cover.jpg">
