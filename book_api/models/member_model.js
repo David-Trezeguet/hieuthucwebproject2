@@ -1,6 +1,6 @@
 const db = require('../database.js');
 
-const login = {
+const member = {
     get: (emailaddress, password, callback) => {
         console.log(emailaddress, password);
         db.query('select * from `member` where emailaddress=? and password=?', 
@@ -11,4 +11,4 @@ const login = {
     
 }
 
-module.exports = login;
+module.exports = member;

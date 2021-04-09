@@ -1,16 +1,4 @@
-// popup - signup - Hieu
 
-    function openSignupForm() {
-        const element = document.getElementById("signupForm");
-        if (element) element.style.display = "block";
-    }
-
-    function closeSignupForm() {
-        const element = document.getElementById("signupForm");
-        if (element) element.style.display = "none";
-    }
-
-// popup - signup - Hieu - END
 
 //start thuc:signup update data validation
 

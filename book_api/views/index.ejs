@@ -46,49 +46,8 @@
       
 
       <!-- START thuc:login update data validation -->
-      <div class="hide" style="display: none;">
-        Log In. If you already have a BookExchange profile, please log in.
-        <form name="loginForm" action='/login' method="POST" onsubmit="return validateForm()">    
-            <p><label>Email</label></p>
-            <p><input type="email" name="email" onblur="validate(this)"
-                  onfocus="removeValidatingNotification(this)"></p>
-            <p><label>Password</label></p>
-            <p><input type="password" name="password" onblur="validate(this)"
-                  onfocus="removeValidatingNotification(this)"></p>
-              <script type="text/javascript">
-                  function validate(obj) {
-                      removeValidatingNotification(obj);
-
-                      if (obj.value.trim() == "") {
-                        const notificationElement = document.createElement('p');
-                        notificationElement.innerText = "Please enter your " + obj.name + ".";
-                        notificationElement.style.color = 'red';
-                        notificationElement.id = obj.name + '-validating-notification';
-                        obj.parentNode.append(notificationElement);
-                        return false;
-                      }
-
-                      return true;
-                  }
-
-                  function removeValidatingNotification(obj) {
-                    const x = document.getElementById(obj.name + '-validating-notification');
-                    if(x) x.remove();
-                  }
-
-                  function validateForm() {
-                    return validate(document.forms.loginForm["email"]) && validate(document.forms.loginForm["password"]);
-                  }
-              </script>
-
-            <input type="submit" name="" value="Log In">
-            
-            <p>Do not have account yet?</p>
-            <p><input type="button" name="" value="Create account" onclick="window.location.href='/signup'"></p>
-
-        </form>
-      </div>
-        <!-- END thuc:login update data validation -->
+      
+        
     <% } %>
 </main>
 

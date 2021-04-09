@@ -10,11 +10,6 @@
 </header>
 
 <main>
-  <%#<script type="text/javascript">
-    const mainElem = document.body.getElementsByTagName('main')[0];
-    mainElem.innerHTML += 
-      `<p><a href="/book">Upload a book info</a><p>`;
-  </script>%>
   <h2>My books</h2>
     <% if (locals.books) { %>
       <ul>
@@ -25,11 +20,7 @@
     <% } %>
   <form action="/book/upload" method="POST">
     <script type="text/javascript">
-      const idmemberElem = document.createElement('input');
-      idmemberElem.type = 'hidden';
-      idmemberElem.name = 'idmember';
-      idmemberElem.value = localStorage.getItem('idmember');
-      document.currentScript.parentNode.appendChild(idmemberElem);
+      insertHiddenIdmemberTo(document.currentScript.parentNode);
     </script>
     <input type="submit" name="" value="Upload a book">
   </form>

@@ -1,7 +1,7 @@
 const db = require('../database.js');
 
 const book = {
-    get: (idbook, callback) => {
+    getByIdbook: (idbook, callback) => {
         if ( idbook ) { 
             db.query(
                 'select * from book inner join `member` on book.idmember=`member`.idmember where idbook=?',
@@ -14,7 +14,7 @@ const book = {
         }
     },
 
-    getByMember: (idmember, callback) => {
+    getByIdmember: (idmember, callback) => {
         if ( idmember ) { 
             db.query(
                 'select * from book where idmember=?',

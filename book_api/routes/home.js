@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var home = require('../models/home_model.js');
 var book = require('../models/book_model.js');
 
 router.get('/', (req, res) => {
