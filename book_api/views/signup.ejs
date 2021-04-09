@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <%- include('./head'); %>
+    <link rel="stylesheet" href="/stylesheets/signup.css">
 </head>
 <body class="container">
 
@@ -10,25 +11,51 @@
 </header>
 
 <main>
-Welcome to BookExchange!<br>
-To start your journey you need to register.
-<form action="/signup" method="POST">
-    <p><label>Name</label><input type="text" name=""></p>
-    <p><label>Surname</label><input type="text" name=""></p>
-    <p><label>Email</label><input type="text" name=""></p>
-    <p><label>Country</label><input type="text" name=""></p>
-    <p><label>City</label><input type="text" name=""></p>
-    <p><label>Street</label><input type="text" name=""></p>
-    <p><label>Postal code</label><input type="text" name=""></p>
-    
-    <p><label>Choose your username</label></p>
-    <p><input type="text" name="username"></p>
-    <p><label>Set up your password</label></p>
-    <p><input type="password" name="password"></p>
-    <p><label>Please re-type your password</label></p>
-    <p><input type="password" name="password2"></p>
+    <div class="popup-signup-form" id="signupForm">
+        <form class="signup-form">
+            <h2>Welcome to BookExchange! To start your journey you need to register.</h2>
 
-    <input type="submit" name="" value="Create account">
+            <div>
+                <label>Name</label>
+                <input type="text" placeholder="Enter Name" required>
+            </div>
+            <div>
+                <label>Surname</label>
+                <input type="text" placeholder="Enter Surname" required>
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="text" placeholder="Enter Email" required>
+            </div>
+            <div>
+                <label>Country</label>
+                <input type="text" placeholder="Enter Country" required>
+            </div>
+            <div>
+                <label>City</label>
+                <input type="text" placeholder="Enter City" required>
+            </div>
+            <div>
+                <label>Street</label>
+                <input type="text" placeholder="Enter Street" required>
+            </div>
+            <div>
+                <label>Postal code</label>
+                <input type="text" placeholder="Enter Postal code" required>
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" placeholder="Enter Password" name="psw1" required>
+            </div>
+            <div>
+                <label>Confirm password</label>
+                <input type="password" placeholder="Confirm Password" name="psw2" required>
+            </div>
+
+            <button type="submit" class="btn signup">Create your account</button>
+            <button type="button" class="btn cancel" onclick="closeSignupForm()">Close</button>
+        </form>
+    </div>
 </form>
 
 </main>

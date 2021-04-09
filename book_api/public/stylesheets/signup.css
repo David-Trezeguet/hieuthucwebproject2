@@ -1,0 +1,72 @@
+/* ----- popup-signup ----- */
+.popup-signup-form * {
+    box-sizing: border-box;
+}
+
+.popup-signup-form {
+    /* display: none; */
+    /* position: fixed; */
+    top: 0px;
+    /* z-index: 8; */
+}
+
+.signup-form {
+    width: 1024px;
+    height: 830px;
+    padding: 20px 300px;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.signup-form h2 {
+    line-height: 33px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.signup-form label {
+    float: left;
+    width: 32%;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.signup-form input[type=text],
+.signup-form input[type=password] {
+    width: 68%;
+    padding: 15px 0 5px 15px;
+    margin: 5px 0 15px 0;
+    border: none;
+    background-color: #ddd;
+}
+
+.signup-form input[type=text]:focus,
+.signup-form input[type=password]:focus {
+    background-color: rgb(207, 207, 207);
+    outline: none;
+}
+
+.signup-form .btn {
+    background-color: #4CAF50;
+    color: var(--white-color);
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.signup-form .btn.signup {
+    margin-top: 10px;
+}
+
+.signup-form .cancel {
+    background-color: red;
+}
+
+.signup-form .btn:hover,
+.signup-button:hover {
+    opacity: 0.9;
+}

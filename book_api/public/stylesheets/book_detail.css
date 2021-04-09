@@ -1,0 +1,138 @@
+/* ??? gray */
+.web {
+    /* margin: auto; */
+    width: 100%;
+    background-color: var(--ground-color);
+}
+
+.container {
+    max-width: 1024px;
+    margin: auto;
+    padding-top: 20px;
+    background-color: var(--white-color);
+    box-sizing: border-box;
+    border-radius: 4px;
+    /* position: relative; */
+}
+
+.container-img-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* ----- container--img ------*/
+.container--img {
+    padding-left: 80px;
+    padding-right: 75px;
+    position: relative;
+}
+
+.container---bigimg > img{
+    width: 350px;
+    height:500px;
+}
+
+.container---smallimgs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.smallimg {
+    margin: 0 5px;
+}
+
+.smallimg:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.35);
+}
+
+.smallimg > img {
+    width: 60px;
+    height: 60px;
+}
+
+.smallimg:hover > .hide {
+    display: block;
+}
+
+.hide {
+    display: none;
+    animation: fadein 0.5s;
+}
+
+.hide img {
+    width: 350px;
+    height:500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 80px;
+}
+
+/* ----- container--info ------*/
+.container--info {
+    width: 400px;
+    margin-top: 60px;
+}
+
+.info-book {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 32px;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+.info-book:first-child {
+    line-height: initial;
+}
+
+.info-version , .info-condition,
+.info-delivery, .info-owner, 
+.info-rating {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.info-owner {
+    margin-top: 30px;
+}
+
+.info-version > div:first-child {
+    float: left;
+    width: 280px;
+}
+
+.fas.fa-star {
+    color: rgb(255, 196, 0);
+}
+
+.buynow {
+    background-color: var(--main-color);
+    border-radius: 8px;
+    width: 222px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.35);
+    border: none;
+    margin-bottom: 20px;
+}
+
+.buynow > a {
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+/* ----- container-summary ----- */
+.container-summary {
+    padding: 20px 80px 0 80px;
+    text-align: justify;
+}
+
+.container-summary > p {
+    line-height: 25px;
+}
