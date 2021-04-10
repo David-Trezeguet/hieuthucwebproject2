@@ -8,7 +8,12 @@ const member = {
             callback);
     },
 
-    
+    add: (member, callback) => {
+        db.query(
+            'insert into `member`(firstname, lastname, emailaddress, password, address, phonenumber) values(?, ?, ?, ?, ?, ?)', 
+            [member.firstname, member.lastname, member.emailaddress, member.password, member.address, member.phonenumber],
+            callback);
+    },
 }
 
 module.exports = member;

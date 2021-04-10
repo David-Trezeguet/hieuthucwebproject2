@@ -12,8 +12,18 @@ router.get('/', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
-    member.get( req.body.idowner, (err, dbResult) => {
-        err ? res.json(err) : res.render('book_upload');
+    console.log(req.body);
+    member.add( req.body, (err, dbResult) => {
+        if (err) {
+            console.log(err);
+            if (err.errno == 1062) {
+                res.json( {success: false, message: 'This email address is not available. Please choose a different one.'} )
+            } else {
+                res.json( {success: false, message: 'Error occures. Please contact the website administrator.'} )
+            }
+        } else {
+            res.json( {success: true, message: 'You have successfully registered. You can log in now.'} );
+        }
     } )
 });
 
