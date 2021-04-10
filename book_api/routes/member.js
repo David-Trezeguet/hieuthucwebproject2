@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
-    member.getByMember( req.body.idowner, (err, dbResult) => {
+    member.get( req.body.idowner, (err, dbResult) => {
         err ? res.json(err) : res.render('book_upload');
     } )
 });

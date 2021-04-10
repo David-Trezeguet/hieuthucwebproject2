@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var book = require('../models/book_model.js');
 
-router.get('/:idbook', (req, res) => {
-    console.log('req.params.idbook:', req.params.idbook);
-    book.get( req.params.idbook, (err, dbResult) => {
+router.get('/', (req, res) => {
+    console.log('req.query.idbook:', req.query.idbook);
+    book.getByIdbook( req.query.idbook, (err, dbResult) => {
         if (err) {
             res.json(err);
         } else {
@@ -12,7 +12,7 @@ router.get('/:idbook', (req, res) => {
                 // res.json(dbResult[0]);
                 res.render('book_detail', { book: dbResult[0]});
             } else {
-                res.send('There is no book with that id.')
+                res.json( {success: false, message: 'There is no book with that id.'} );
             }
         }
     });
