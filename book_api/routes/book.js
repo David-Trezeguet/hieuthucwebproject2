@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 
 router.post('/upload', (req, res) => {
     console.log('req.body.idmember', req.body.idmember);
-    book.getByMember( req.body.idmember, (err, dbResult) => {
+    book.getByIdmember( req.body.idmember, (err, dbResult) => {
         err ? res.json(err) : res.render('book_upload');
     } )
     
