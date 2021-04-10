@@ -27,46 +27,9 @@
     position: relative;
 }
 
-.container---bigimg > img{
+.container---bigimg > img {
     width: 350px;
     height:500px;
-}
-
-.container---smallimgs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.smallimg {
-    margin: 0 5px;
-}
-
-.smallimg:hover {
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.35);
-}
-
-.smallimg > img {
-    width: 60px;
-    height: 60px;
-}
-
-.smallimg:hover > .hide {
-    display: block;
-}
-
-.hide {
-    display: none;
-    animation: fadein 0.5s;
-}
-
-.hide img {
-    width: 350px;
-    height:500px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin-left: 80px;
 }
 
 /* ----- container--info ------*/
@@ -87,18 +50,16 @@
 }
 
 .info-version , .info-condition,
-.info-delivery, .info-owner, 
-.info-rating {
+.info-owner, .info-rating {
     font-weight: bold;
     font-size: 20px;
     line-height: 20px;
     margin-bottom: 20px;
 }
 
-.info-owner {
-    margin-top: 30px;
+.info-owner, .info-rating {
+    color: #2b38ff;
 }
-
 .info-version > div:first-child {
     float: left;
     width: 280px;
@@ -124,7 +85,11 @@
 
 .buynow > a {
     text-decoration: none;
-    color: var(--white-color);
+    color: #2b38ff;
+}
+
+.buynow:hover {
+    background-color: #ffa1eb;
 }
 
 /* ----- container-summary ----- */
@@ -135,4 +100,44 @@
 
 .container-summary > p {
     line-height: 25px;
+}
+
+/* ----- container-feedback ----- */
+.container-feedback {
+    padding: 20px 80px 0 80px;
+    text-align: justify;
+}
+
+.feedback-form label {
+    float: left;
+    width: 8%;
+    margin-top: 20px;
+}
+
+.feedback-form input[type=text] {
+    width: 80%;
+    padding: 15px 0 5px 15px;
+    margin: 5px 0 15px 0;
+    border-radius: 2px;
+    border-width: thin;
+    /* border: none; */
+}
+
+.feedback-form input[type=text]:focus {
+    background-color:  #ddd;
+    /* outline: none; */
+}
+
+.btnfeedback {
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.btnfeedback:hover {
+    opacity: 0.9;
 }

@@ -20,25 +20,6 @@
           <div class="container---bigimg">
             <img src="/images/sp01.png">
           </div>
-          <div class="container---smallimgs">
-            <div class="smallimg">
-              <img src="/images/sp01/slide2.png">
-              <div class="hide"><img src="/images/sp01/slide2.png"></div>
-                
-            </div>
-            <div class="smallimg">
-              <img src="/images/sp01/slide3.png">
-              <div class="hide"><img src="/images/sp01/slide3.png"></div>
-            </div>
-            <div class="smallimg">
-              <img src="/images/sp01/slide4.png">
-              <div class="hide"><img src="/images/sp01/slide4.png"></div>
-            </div>
-            <div class="smallimg">
-              <img src="/images/sp01/slide5.png">
-              <div class="hide"><img src="/images/sp01/slide5.png"></div>
-            </div>
-          </div>
         </div>
         <div class="container--info">
           <div class="info-book"><%=book.title%></div>
@@ -52,7 +33,7 @@
           
           <div class="info-owner">Owner: <span><%=book.firstname + ' ' + book.lastname%></span></div>
           <div class="info-rating">
-            <!-- ??? member.creditScore -->
+            <!-- JS to convert start -->
             <span>Rating: </span>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -62,14 +43,31 @@
           </div>
 
           <button class="buynow"><a href="">Message with Owner</a></button>
-          <div class="info-delivery">Estimated delivery time: <span>14</span>  days</div>
+          <button class="buynow"><a href="">Edit your book</a></button>
         </div>
       </div>
+
       <!-- container-summary -->
       <div class="container-summary">
         <h1>SUMMARY</h1>
         <p><%=book.description%></p>
-      </div>  
+      </div>
+
+      <!-- container-feedback -->
+      <div class="container-feedback">
+        <h1>RATINGS & REVIEWS FOR OWNER</h1>
+        <form class="feedback-form">
+          <div>
+            <label><b>Rating</b></label>
+            <input type="text" placeholder="Enter 1 to 5 point" required>
+          </div>
+          <div>
+            <label><b>Review</b></label>
+            <input type="text" placeholder="Enter your review" required>
+          </div>
+          <button type="submit" class="btnfeeback">Give your feedback</button>
+        </form>
+      </div> 
     </div>
   </div>
 <!-- ----------------------------------------------------------------------------- -->
