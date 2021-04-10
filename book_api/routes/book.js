@@ -15,7 +15,41 @@ router.get('/', (req, res) => {
                 res.json( {success: false, message: 'There is no book with that id.'} );
             }
         }
+const express = require('express');
+const router = express.Router();
+const book = require('../models/book_model');
+
+router.get('/:id?',
+ function(request, response) {
+  if (request.params.id) {
+    book.getById(request.params.id, function(err, dbResult) {
+      if (err) {
+        response.json(err);
+      } else {
+        response.json(dbResult);
+      }
     });
+  } else {
+    book.getAll(function(err, dbResult) {
+      if (err) {
+        response.json(err);
+      } else {
+        response.json(dbResult);
+      }
+    });
+  }
+});
+
+
+router.post('/', 
+function(request, response) {
+  book.add(request.body, function(err, dbResult) {
+    if (err) {
+      response.json(err);
+    } else {
+      response.json(request.body);
+    }
+  });
 });
 
 router.post('/upload', (req, res) => {
@@ -24,12 +58,28 @@ router.post('/upload', (req, res) => {
         err ? res.json(err) : res.render('book_upload');
     } )
     
+
+router.delete('/:id', 
+function(request, response) {
+  book.delete(request.params.id, function(err, dbResult) {
+    if (err) {
+      response.json(err);
+    } else {
+      response.json(dbResult);
+    }
+  });
 });
 
-router.post('/add', (req, res) => {
-    book.add( req.body, (err, dbResult) => {
-        err ? res.json(err) : res.send('Sucessfully uploaded.');
-    } )
-})
+
+router.put('/:id', 
+function(request, response) {
+  book.update(request.params.id, request.body, function(err, dbResult) {
+    if (err) {
+      response.json(err);
+    } else {
+      response.json(dbResult);
+    }
+  });
+});
 
 module.exports = router;

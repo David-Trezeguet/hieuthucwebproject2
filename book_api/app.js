@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var bookRouter = require('./routes/book');
 var memberRouter = require('./routes/member');
 var messageRouter = require('./routes/message');
+var memberRouter = require('./routes/member');
+var transactionRouter = require('./routes/transaction');
 
 var app = express();
 
@@ -28,6 +30,8 @@ app.use('/about', (req, res) => res.render('about'));
 app.use('/book', bookRouter);
 app.use('/member', memberRouter);
 app.use('/message', messageRouter);
+app.use('/member', memberRouter);
+app.use('/transaction', transactionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

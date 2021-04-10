@@ -4,7 +4,7 @@ const book = {
     getByIdbook: (idbook, callback) => {
         if ( idbook ) { 
             db.query(
-                'select * from book inner join `member` on book.idmember=`member`.idmember where idbook=?',
+                'select * from book inner join `member` on book.idmember=member.idmember where idbook=?',
                 [idbook],
                 callback
             );
@@ -26,12 +26,15 @@ const book = {
             return;
         }
     }, 
-
+    
+//check add 
     add: (book, callback) => {
         if ( book && Object.keys(book).length > 0 ) {  
             db.query(
                 'insert into book(title, idmember, author) values(?, ?, ?)',
                 [book.title, book.idmember, book.author],
+                'insert into book(title, idmember, author, year, edition, condition, image, description) values(?, ?, ?, ?, ?, ?, ?, ?)',
+                [book.title, book.idmember, book.author, book.year, book.edition, book.condition, book.image, book.description],
                 callback
             );
         } else {

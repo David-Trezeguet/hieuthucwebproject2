@@ -4,10 +4,13 @@ body {
     color: #565656;
   }
 
+<<<<<<< HEAD
 button {
     cursor: pointer;
 }
 
+=======
+>>>>>>> origin/main
 * {
     box-sizing: border-box;
 }
@@ -39,6 +42,10 @@ button {
     border-radius: 2px;
     border: 1px solid;
     padding: 5px;
+<<<<<<< HEAD
+=======
+    cursor: pointer;
+>>>>>>> origin/main
 }
 
 /*body*/
@@ -83,6 +90,10 @@ button {
     border-radius: 3px;
     border: none;
     margin-top: 50px;
+<<<<<<< HEAD
+=======
+    cursor: pointer;
+>>>>>>> origin/main
 }
 
 /*About project*/
@@ -121,6 +132,10 @@ button {
     padding: 15px;
     border-radius: 3px;
     border: none;
+<<<<<<< HEAD
+=======
+    cursor: pointer;
+>>>>>>> origin/main
 }
 
 /*Footer*/
@@ -160,6 +175,7 @@ button {
 
 .footer-end {
     text-align: center;
+<<<<<<< HEAD
 }
 
 /* Member page*/
@@ -215,4 +231,6 @@ button {
     width: 150px;
     height: 200px;
     margin: 20px;
+=======
+>>>>>>> origin/main
 }

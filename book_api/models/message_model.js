@@ -12,6 +12,11 @@ const message = {
       and (message.idmember=? or message.idreceiver=?) 
       order by time asc`,
       [idbook, idmember, idmember],
+      `select b.idbook, b.image, m.idmember, m.idreceiver, m.message, m.time, concat(mb.firstname, ' ', mb.lastname) 
+      as sender_name, concat(mb2.firstname, ' ', mb2.lastname) as receiver_name from book b left join message m on b.idbook=m.idbook 
+      inner join member mb on mb.idmember=m.idperson inner join member mb2 on mb2.idmember=m.idreceiver where b.idbook=? 
+      and (m.idsender=? or m.idreceiver=?) order by time asc limit 20`,
+      [idbook, idmember, idreceiver],
       callback
     );
   },
