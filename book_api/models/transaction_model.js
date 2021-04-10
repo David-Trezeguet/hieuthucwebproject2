@@ -1,4 +1,5 @@
 const db = require('../database.js');
+       
 const transaction = {
     getAll: (callback) => db.query(
         'select * from transaction inner join `member` on transaction.idmember=member.idmember inner join book on transaction.idbook=book.idbook order by idtransaction desc',
@@ -39,6 +40,6 @@ const transaction = {
         [id],
         callback
     )
-}
+};
 
 module.exports = transaction;

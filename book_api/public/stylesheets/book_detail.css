@@ -1,0 +1,143 @@
+/* ??? gray */
+.web {
+    /* margin: auto; */
+    width: 100%;
+    background-color: var(--ground-color);
+}
+
+.container {
+    max-width: 1024px;
+    margin: auto;
+    padding-top: 20px;
+    background-color: var(--white-color);
+    box-sizing: border-box;
+    border-radius: 4px;
+    /* position: relative; */
+}
+
+.container-img-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* ----- container--img ------*/
+.container--img {
+    padding-left: 80px;
+    padding-right: 75px;
+    position: relative;
+}
+
+.container---bigimg > img {
+    width: 350px;
+    height:500px;
+}
+
+/* ----- container--info ------*/
+.container--info {
+    width: 400px;
+    margin-top: 60px;
+}
+
+.info-book {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 32px;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+.info-book:first-child {
+    line-height: initial;
+}
+
+.info-version , .info-condition,
+.info-owner, .info-rating {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.info-owner, .info-rating {
+    color: #2b38ff;
+}
+.info-version > div:first-child {
+    float: left;
+    width: 280px;
+}
+
+.fas.fa-star {
+    color: rgb(255, 196, 0);
+}
+
+.buynow {
+    background-color: var(--main-color);
+    border-radius: 8px;
+    width: 222px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.35);
+    border: none;
+    margin-bottom: 20px;
+}
+
+.buynow > a {
+    text-decoration: none;
+    color: #2b38ff;
+}
+
+.buynow:hover {
+    background-color: #ffa1eb;
+}
+
+/* ----- container-summary ----- */
+.container-summary {
+    padding: 20px 80px 0 80px;
+    text-align: justify;
+}
+
+.container-summary > p {
+    line-height: 25px;
+}
+
+/* ----- container-feedback ----- */
+.container-feedback {
+    padding: 20px 80px 0 80px;
+    text-align: justify;
+}
+
+.feedback-form label {
+    float: left;
+    width: 8%;
+    margin-top: 20px;
+}
+
+.feedback-form input[type=text] {
+    width: 80%;
+    padding: 15px 0 5px 15px;
+    margin: 5px 0 15px 0;
+    border-radius: 2px;
+    border-width: thin;
+    /* border: none; */
+}
+
+.feedback-form input[type=text]:focus {
+    background-color:  #ddd;
+    /* outline: none; */
+}
+
+.btnfeedback {
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.btnfeedback:hover {
+    opacity: 0.9;
+}

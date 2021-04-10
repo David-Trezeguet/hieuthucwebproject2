@@ -1,7 +1,7 @@
 const db = require('../database.js');
 
 const book = {
-    get: (idbook, callback) => {
+    getByIdbook: (idbook, callback) => {
         if ( idbook ) { 
             db.query(
                 'select * from book inner join `member` on book.idmember=member.idmember where idbook=?',
@@ -14,7 +14,7 @@ const book = {
         }
     },
 
-    getByMember: (idmember, callback) => {
+    getByIdmember: (idmember, callback) => {
         if ( idmember ) { 
             db.query(
                 'select * from book where idmember=?',
@@ -31,6 +31,8 @@ const book = {
     add: (book, callback) => {
         if ( book && Object.keys(book).length > 0 ) {  
             db.query(
+                'insert into book(title, idmember, author) values(?, ?, ?)',
+                [book.title, book.idmember, book.author],
                 'insert into book(title, idmember, author, year, edition, condition, image, description) values(?, ?, ?, ?, ?, ?, ?, ?)',
                 [book.title, book.idmember, book.author, book.year, book.edition, book.condition, book.image, book.description],
                 callback

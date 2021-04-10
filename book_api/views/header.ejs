@@ -1,10 +1,105 @@
-<a href="/"><img src="/images/logo.png"></a>
-<ul>
-  <li><a href="/about">About</a></li>
-  <li><a href="/signup">Sign Up</a></li>
-  <li><a href="/login">Log In</a></li>
-</ul>
+<link rel="stylesheet" type="text/css" href="/stylesheets/header.css">
 
+<!-- header -->
+<div class="header">
+  <!-- header_navbar -->
+  <div class="header_navbar">
+    <a href="/"><img src="/images/logo.png"></a>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><button class="signup-button" onclick="openSignupForm()">Sign Up</button></li>
+      <li><button class="login-button" onclick="openLoginForm()">Log In</button></li>
+    </ul>
+
+    <div class="popup-signup-form" id="signupForm" >
+        <form class="signup-form" action="/member/add" method="post">
+          <h2>Welcome to BookExchange! 
+              To start your journey you need to register.</h2>
+
+          <div>
+            <label><b>Name</b></label>
+            <input type="text" placeholder="Enter Name" required>
+          </div>
+          <div>
+            <label><b>Surname</b></label>
+            <input type="text" placeholder="Enter Surname" required>
+          </div>
+          <div>
+            <label><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" required>
+          </div>
+          <div>
+            <label><b>Country</b></label>
+            <input type="text" placeholder="Enter Country" required>
+          </div>
+          <div>
+            <label><b>City</b></label>
+            <input type="text" placeholder="Enter City" required>
+          </div>
+          <div>
+            <label><b>Street</b></label>
+            <input type="text" placeholder="Enter Street" required>
+          </div>
+          <div>
+            <label><b>Postal code</b></label>
+            <input type="text" placeholder="Enter Postal code" required>
+          </div>
+
+          <div>
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+          </div>
+          <div>
+            <label><b>Confirm password</b></label>
+            <input type="password" placeholder="Confirm Password" name="psw" required>
+          </div>
+
+          <button type="submit" class="btn signup">Create your account</button>
+          <button type="button" class="btn cancel" onclick="closeSignupForm()">Close</button>
+        </form>
+    </div>
+
+    <div class="popup-login-form" id="loginForm" >
+        <form class="login-form" action="/member/login" method="post">
+          <h2>If you already have a BookExchange profile, please log in.</h2>
+
+          <div>
+            <label><b>Email</b></label>
+            <input type="email" name="emailaddress" placeholder="Enter Email" required>
+          </div>
+          <div>
+            <label><b>Password</b></label>
+            <input type="password" name="password" placeholder="Enter Password" required>
+          </div>
+          <button type="submit" class="btn login">Log In</button>
+          <div>
+            <label><b>Do not have account yet?</b></label>
+          </div>
+          <button type="button" class="btn cancel" onclick="closeLoginForm();openSignupForm();">Create account</button>
+        </form>
+    </div>
+
+    
+  </div>
+</div>
+
+<script>
+  function openSignupForm() {
+      document.getElementById("signupForm").style.display = "block";
+  }
+
+  function closeSignupForm() {
+      document.getElementById("signupForm").style.display = "none";
+  }
+
+  function openLoginForm() {
+      document.getElementById("loginForm").style.display = "block";
+  }
+
+  function closeLoginForm() {
+      document.getElementById("loginForm").style.display = "none";
+  }
+</script>
 
 <% if (locals.isAuthorized) { %>
   <script type="text/javascript">

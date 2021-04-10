@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html2 lang="en">
 <head>
-    <%- include('./head'); %>
+  <%- include('./head'); %>
+  <link rel="stylesheet" href="/stylesheets/book_detail.css">
 </head>
 <body class="container">
 
@@ -11,13 +12,69 @@
 
 <main>
   <% if (locals.book) { %>
+  <div class="web">
+    <div class="container">
+      <!-- container-img-info -->
+      <div class="container-img-info">
+        <div class="container--img">
+          <div class="container---bigimg">
+            <img src="/images/sp01.png">
+          </div>
+        </div>
+        <div class="container--info">
+          <div class="info-book"><%=book.title%></div>
+          <div class="info-book"><%=book.author%></div>
+
+          <div class="info-version">
+            <div>Issue date: <span><%=book.year%></span></div>
+            <div>Edition: <span><%=book.edition%></span></div>
+          </div>
+          <div class="info-condition">Book condition: <span><%=book.condition%></span></div>
+          
+          <div class="info-owner">Owner: <span><%=book.firstname + ' ' + book.lastname%></span></div>
+          <div class="info-rating">
+            <!-- JS to convert start -->
+            <span>Rating: </span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+
+          <button class="buynow"><a href="">Message with Owner</a></button>
+          <button class="buynow"><a href="">Edit your book</a></button>
+        </div>
+      </div>
+
+      <!-- container-summary -->
+      <div class="container-summary">
+        <h1>SUMMARY</h1>
+        <p><%=book.description%></p>
+      </div>
+
+      <!-- container-feedback -->
+      <div class="container-feedback">
+        <h1>RATINGS & REVIEWS FOR OWNER</h1>
+        <form class="feedback-form">
+          <div>
+            <label><b>Rating</b></label>
+            <input type="text" placeholder="Enter 1 to 5 point" required>
+          </div>
+          <div>
+            <label><b>Review</b></label>
+            <input type="text" placeholder="Enter your review" required>
+          </div>
+          <button type="submit" class="btnfeeback">Give your feedback</button>
+        </form>
+      </div> 
+    </div>
+  </div>
+<!-- ----------------------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------------------- -->
     <div style="display: flex">
-      <img src="/images/placeholder.png" style="width: 100px; height: 100px">
       <div>
         <h2>Title: <%=book.title%></h2>
-        ...<br>
-        blah blah...<br>
-        ...<br>
         <h4>Owner: <%=book.firstname + ' ' + book.lastname%></h4>
         <input type="button" name="btn_contact_owner" value="Contact the owner">
         <script type="text/javascript">
@@ -43,7 +100,7 @@
 </main>
 
 <footer>
-    <%- include('./footer'); %>
+  <%- include('./footer'); %>
 </footer>
 
 

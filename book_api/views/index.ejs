@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <%- include('./head'); %>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index.css">
+    <script type="text/javascript" src="/javascripts/index.js"></script>
 </head>
 <body class="container">
 
@@ -11,12 +13,41 @@
 
 <main>
     <% if (!locals.idmember) { %>
-      <!-- <p>Welcome to BookExchange. Please log in to continue.</p>
-      <p>Username: </p>
-      <input type="text" id="username">
-      <p>Password: </p>
-      <input type="password" id="password">
-      <p><button id="login">Login</button></p> -->
+      
+
+      <!-- START Anastasiia: body-->
+      <!-- body of the main page -->
+      <p>Welcome to the book exchange platform!</p>
+      <p>Here you can give away your old books and find new ones.</p>
+      <!--Search  https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit-->
+      <form>
+          <label for="Title">Book title:</label><br>
+          <input type="text" id="Title"><br>
+          <label for="Author">Book author:</label><br>
+          <input type="text" id="Author">
+      </form>
+      <button>See latest posted books</button>
+      <!--Create account sugestion-->
+      <p>And do not forget to share your books</p>
+      <button>Create account</button>
+      <!--About project (here should be sent when clicking "about" in header)-->
+      <h1>How does it work</h1>
+      <p>You search for the book<br>
+          <i class="fas fa-search"></i>
+      </p>
+      <p>Agree with the owner<br>
+          <i class="far fa-handshake"></i>
+      </p>
+      <p>Share books you want to give away<br>
+          <i class="fas fa-recycle"></i>
+      </p>
+      <!-- END Anastasiia: body-->
+
+      
+
+      <!-- START thuc:login update data validation -->
+      
+        
     <% } %>
 </main>
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('./header', { isAuthorized: true }); %>
+</header>
+
+<main>
+  <h2>My books</h2>
+    <% if (locals.books) { %>
+      <ul>
+        <% for (let book of books) { %>
+          <li><a href='/book/<%=book.idbook%>'><%=book.title%></a></li>
+        <% } %>
+      </ul>
+    <% } %>
+  <form action="/book/upload" method="POST">
+    <script type="text/javascript">
+      insertHiddenIdmemberTo(document.currentScript.parentNode);
+    </script>
+    <input type="submit" name="" value="Upload a book">
+  </form>
+
+  <h2>Search for a book</h2>
+</main>
+
+<footer>
+    <%- include('./footer'); %>
+</footer>
+
+
+</body>
+</html>

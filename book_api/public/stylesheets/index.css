@@ -1,0 +1,365 @@
+/* Hieu - detail page & footer */
+:root {
+    --white-color: #fff;
+    --back-color: #000;
+    --text-color: #333;
+    --main-color: #ffb0ee;
+    --ground-color: #F4F5F7;    
+}
+* {
+    box-sizing: inherit;
+}
+html {
+    font-size: 16px;
+    line-height: 16px;
+    font-family: "Roboto", sans-serif;
+}
+body {
+    margin: 0;
+}
+.web {
+    background-color: var(--ground-color);
+}
+/* -----------------------header ----------------------- */
+.header {
+    max-width: 1024px;
+    margin: 0 auto;
+    background-color: var(--main-color);
+}
+
+.header_navbar {
+    height: 100%;
+    min-height: 83px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+/* --------------------- container --------------------- */
+.container {
+    max-width: 1024px;
+    margin: auto;
+    margin-bottom: 30px;
+    background-color: white;
+    padding: 20px 80px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    /* position: relative; */
+}
+
+.container-img-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* ----- container--img ------*/
+.container--img {
+    padding-right: 75px;
+    position: relative;
+}
+
+.container---bigimg > img{
+    width: 350px;
+    height:500px;
+}
+
+.container---smallimgs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.smallimg {
+    margin: 0 5px;
+}
+
+.smallimg:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.35);
+}
+
+.smallimg > img {
+    width: 60px;
+    height: 60px;
+}
+
+.smallimg:hover > .hide {
+    display: block;
+}
+
+.hide {
+    display: none;
+    animation: fadein 0.5s;
+}
+
+.hide img {
+    width: 350px;
+    height:500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* ----- container--info ------*/
+.container--info {
+    min-width: 400px;
+    margin-top: 60px;
+}
+
+.info-book {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 32px;
+    margin-bottom: 30px;
+}
+
+.info-version , .info-condition,
+.info-delivery, .info-owner, 
+.info-rating {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.info-owner {
+    margin-top: 30px;
+}
+
+.info-version > div:first-child {
+    float: left;
+    width: 280px;
+}
+
+.fas.fa-star {
+    color: rgb(255, 196, 0);
+}
+
+.buynow {
+    background-color: var(--main-color);
+    border-radius: 8px;
+    width: 222px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.35);
+    border: none;
+    margin-bottom: 20px;
+}
+
+.buynow > a {
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+/* ----- container-summary ----- */
+.container-summary {
+    padding-top: 20px;
+    text-align: justify;
+}
+
+.container-summary > p {
+    line-height: 25px;
+}
+
+/* ----------------------- footer ----------------------- */
+.footer {
+    clear: both;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* ---- footer-collumn ---- */
+.footer-collumn {
+    width: 100%;
+    max-width: 1024px;
+    min-height: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer-collumn > div {
+    flex: 1;
+    padding-left: 20px;
+}
+
+div.footer-collumna-top, .footer-collumna-bottom {
+    padding-left: 0;
+}
+ul.footer-collumna-bottom li {
+    list-style-type: none;
+}
+ul.footer-collumna-bottom li a {
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    color: var(--back-color);
+}
+ul.footer-collumna-bottom li i {
+    margin-top: 5px;
+}
+.fas.fa-home {
+    display: block;
+    float: left;
+    line-height: 100%;
+}
+.home.address {
+    display: block;
+    float: left;
+    width: 200px;
+}
+
+div.footer-collumnb-top, .footer-collumnb-bottom {
+    padding-left: 20px;
+}
+ul.footer-collumnb-bottom li {
+    list-style-type: none;
+}
+
+ul.footer-collumnb-bottom li a:hover {
+    color: blue;
+}
+
+ul.footer-collumnb-bottom li a {
+    text-decoration: none;
+    display: block;
+    margin-top: 2px;
+    color: var(--back-color);
+}
+
+
+div.footer-collumnc-top, .footer-collumnc-bottom {
+    padding-left: 0;
+}
+.footer-collumnc-bottom iframe {
+    max-width:310px;
+    max-height:200px;
+    width: auto;
+    height: auto;
+    box-shadow: 1px 1px 2px 2px rgb(129, 128, 128);
+}
+.footer-collumnc {
+    padding-right: 20px;
+}
+
+.footer-end span {
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#phone {
+    color: red;
+    font-weight: 800;
+}
+#phone sub {
+    color: var(--back-color);
+    font-weight: 800;
+}
+/* Hieu - detail page & footer end*/
+
+/* Hieu - popup - sign up */
+
+.popup-signup-form *, .popup-login-form * {
+    box-sizing: border-box;
+}
+
+.popup-signup-form, .popup-login-form {
+    display: none;
+    position: fixed;
+    top: 0px;
+    z-index: 8;
+    height: 100%;
+    overflow: auto;
+}
+
+.signup-form, .login-form {
+    width: 1024px;
+    height: 830px;
+    padding: 20px 300px;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.signup-form h2, .login-form h2 {
+    line-height: 33px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.signup-form label, .login-form label {
+    float: left;
+    width: 32%;
+    margin-top: 20px;
+}
+
+.signup-form input[type=text],
+.signup-form input[type=password],
+.login-form input[type=text],
+.login-form input[type=password] {
+    width: 68%;
+    padding: 15px 0 5px 15px;
+    margin: 5px 0 15px 0;
+    border: none;
+    background-color: #ddd;
+}
+
+.signup-form input[type=text]:focus,
+.signup-form input[type=password]:focus,
+.login-form input[type=text]:focus,
+.login-form input[type=password]:focus {
+    background-color: rgb(207, 207, 207);
+    outline: none;
+}
+
+.signup-form .btn, .login-form .btn {
+    background-color: #4CAF50;
+    color: var(--white-color);
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.signup-form .btn.signup, .login-form .btn.login {
+    margin-top: 10px;
+}
+
+.signup-form .cancel, .login-form .cancel {
+    background-color: red;
+}
+
+.signup-form .btn:hover,
+.signup-button:hover,
+.login-form .btn:hover,
+.login-button:hover {
+    opacity: 0.9;
+}
+
+/* Hieu - popup - sign up - END*/
+
+
+/* profile page */
+
+.editable {
+    border: 1px solid black;
+    padding: 0px 10px;
+    cursor: text;
+    color: red;
+}
+
+.non-editable {
+    border: none;
+    padding: none;
+    cursor: default;
+    color: black;
+}

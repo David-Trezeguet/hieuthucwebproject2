@@ -1,7 +1,23 @@
-body {
+:root {
+  --white-color: #fff;
+  --back-color: #000;
+  --text-color: #333;
+  --main-color: #ffb0ee;
+  --ground-color: #F4F5F7;    
+}
+/* * {
+  box-sizing: inherit;
+} */
+html {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+} */
 
 a {
   color: #00B7FF;

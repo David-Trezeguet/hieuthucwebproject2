@@ -1,11 +1,13 @@
 // popup - signup - Hieu
 
     function openSignupForm() {
-        document.getElementById("signupForm").style.display = "block";
+        const element = document.getElementById("signupForm");
+        if (element) element.style.display = "block";
     }
 
     function closeSignupForm() {
-        document.getElementById("signupForm").style.display = "none";
+        const element = document.getElementById("signupForm");
+        if (element) element.style.display = "none";
     }
 
 // popup - signup - Hieu - END
@@ -90,7 +92,8 @@
         }
     }
 
-    document.getElementById('edit-my-profile').onclick=toggleEdit;
+    const element = document.getElementById('edit-my-profile');
+    if (element) element.onclick=toggleEdit;
 
     var current_page = 1;
     var records_per_page = 4;

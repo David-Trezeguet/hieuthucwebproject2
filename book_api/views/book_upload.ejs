@@ -11,16 +11,49 @@
 
 <main>
 
-  <h2>Upload a book info</h2>
-    <form action="/book/add" method="POST">
-      <label>Book title: </label>
-      <input type="text" name="title">
+  <h2>Upload your book</h2>
+    <form name="uploadForm" action="/book/add" method="POST">
+      <p><label>Auto fill info by ISBN: </label><input type="text" name="isbn" value="0451526538"><input type="button" name="auto_fill" value="Fill" onclick="autoFillBookInfo()"></p>
+      <p><label>Book cover: </label><img id="book_cover"></p>
+      <p><label>Book title: </label><input type="text" name="title"></p>
+      <p><label>Author(s): </label><input type="text" name="author"></p>  <!-- author for matching with the db -->
+      <p><label>Published Date: </label><input type="text" name="publishedDate"></p>
+      <p><label>Summary: </label><textarea name="summary" rows="10" cols="50"></textarea></p>
+      
       <script type="text/javascript">
-        const idmemberElem = document.createElement('input');
-        idmemberElem.type = 'hidden';
-        idmemberElem.name = 'idmember';
-        idmemberElem.value = localStorage.getItem('idmember');
-        document.currentScript.parentNode.appendChild(idmemberElem);
+        function autoFillBookInfo() {
+          const isbn = document.forms.uploadForm.isbn.value.replaceAll('-', '').trim();
+          console.log('isbn: ', isbn);
+          fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=AIzaSyCEn2-CGiA4HftmacwKTwZ6SuFlaZEfVsU`)
+            .then(response => response.json() )
+            .then(data => {
+              if (data.totalItems == 0) {
+                alert('Book with that ISBN not found in the database. Please fill the info in by yourself.')
+                return
+              };
+              let imgSrc = data.items[0].volumeInfo.imageLinks.thumbnail;
+              imgSrc = imgSrc.replace(/^http:\/\//i, 'https://');
+
+              document.getElementById('book_cover').src = imgSrc;
+              document.forms.uploadForm.title.value = data.items[0].volumeInfo.title;
+              document.forms.uploadForm.author.value = data.items[0].volumeInfo.authors.join(", ");
+              document.forms.uploadForm.publishedDate.value = data.items[0].volumeInfo.publishedDate;
+
+              let languageNames = new Intl.DisplayNames( ['en'], {type: 'language'} );
+              let summary = data.items[0].volumeInfo.description;
+              summary += '\n\nPage Count: ' + data.items[0].volumeInfo.pageCount;
+              summary += '\n\nCategories: ' + data.items[0].volumeInfo.categories.join(", ");
+              summary += '\n\nLanguage: ' + languageNames.of(data.items[0].volumeInfo.language);
+
+              document.forms.uploadForm.summary.value = summary;
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
+      </script>
+      <script type="text/javascript">
+        insertHiddenIdmemberTo(document.currentScript.parentNode);
       </script>
       <input type="submit">
     </form>
