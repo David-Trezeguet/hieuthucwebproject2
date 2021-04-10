@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var signupRouter = require('./routes/signup');
 var loginRouter = require('./routes/login');
-var homeRouter = require('./routes/home');
+/* var homeRouter = require('./routes/home'); */
 var bookRouter = require('./routes/book');
 var messageRouter = require('./routes/message');
 var memberRouter = require('./routes/member');
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
-app.use('/home', homeRouter);
+/* app.use('/home', homeRouter); */
 app.use('/book', bookRouter);
 app.use('/message', messageRouter);
 app.use('/member', memberRouter);
