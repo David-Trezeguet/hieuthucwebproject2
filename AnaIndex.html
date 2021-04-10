@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>BookExchange | Welcome to BookExchange</title>
+    <link rel="stylesheet" href="AnaIndex.css">
+    <script src="https://kit.fontawesome.com/ad71ca8aee.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- main page -->
+
+    <!-- START thuc:header -->
+    <div class="header">
+    <a href="/"><img src="https://github.com/OAMK-DIN20SP/Web-programming-project-/blob/main/book_api/public/images/logo.PNG?raw=true"></a>
+    <a href="/about" style="right:300px">About</a>
+    <button href="/signup" style="right:200px; color:#AB9353; background-color:#fdfbf3">Sign Up</button>
+    <button href="/login" style="right:100px">Log In</button>
+    </div>
+    <!-- END thuc:header -->
+
+    <!-- START Anastasiia: body-->
+    <!-- body of the main page -->
+    <div class="MainBody">
+         <img src="https://github.com/OAMK-DIN20SP/Web-programming-project-/blob/main/book_api/public/images/Book-Wallpaper-02-2560-x-1600.jpeg?raw=true">
+    <div class="centeredBody">
+         <p>Welcome to the book exchange platform!</p>
+         <p>Here you can give away your old books and find new ones.</p>
+         <!--Search  https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_submit-->
+             <form>
+                <div class="search">
+                 <label for="Title">Book title:</label><br>
+                 <input type="text" id="Title" placeholder="Harry Potter">
+                 <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="search">
+                 <label for="Author">Book author:</label><br>
+                 <input type="text" id="Author" placeholder="J.K.Rowling">
+                 <button><i class="fas fa-search"></i></button>
+                </div>
+             </form>
+             <br>
+        <button>See latest posted books</button>
+    </div>
+    
+    
+    <!--About project (here should be sent when clicking "about" in header)-->
+         <h1>How does it work</h1>
+        <div class="about">
+             <p>You search for the book<br>
+             <i class="fas fa-search"></i>
+             </p>
+             <p>Agree with the owner<br>
+             <i class="far fa-handshake"></i>
+             </p>
+             <p>Share books you want to give away<br>
+             <i class="fas fa-recycle"></i>
+            </p>
+        </div>
+        
+    <!--Create account sugestion-->
+    <div class="sugestion">
+         <p>And do not forget to share your books!</p>
+         <button>Create account</button>
+    </div>
+    </div>
+    <!-- END Anastasiia: body-->
+
+    <!-- START Anastasiia: search result-->
+    <div id="SearchResultBox">
+      <img>
+      <p>Title</p>
+      <p>Author, year</p>
+      <p>Description</p>
+      <button>Send message</button>
+    </div>
+    <!-- END Anastasiia: search result-->
+    
+    <!-- footer -->
+    <div class="footer">
+        <h1>BookExchange</h1>
+                <div class="info">
+                        <h3>Information</h3>
+                    <p>
+                        <a>About us</a>
+                        <a>Exchanging Guide</a>
+                        <a>Transportation</a>
+                    </p>
+                </div>
+                <div class="support">
+                        <h3>Support</h3>
+                    <p>
+                        <i class="fas fa-phone-volume"></i>
+                        <span id="phone">&nbsp;  0909 123 456 <sub>(Free)</sub></span>
+                        <br>
+                        <i class="far fa-envelope"></i>
+                        <span>  team3@students.oamk.fi</span>
+                    </p>
+                </div>
+            </div>
+        <div class="footer-end">
+            <p>© 2020 TEAM3. All rights reserved.</p>
+        </div>
+    </div>
+    <!-- end of footer -->
+
+<!-- login --> 
+
+    <!-- START thuc:login update data validation -->
+    Log In. If you already have a BookExchange profile, please log in.
+    <form name="loginForm" action='/login' method="POST" onsubmit="return validateForm()">    
+        <p><label>Email</label></p>
+        <p><input type="email" name="email" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+        <p><label>Password</label></p>
+        <p><input type="password" name="password" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+          <script type="text/javascript">
+              function validate(obj) {
+                  removeValidatingNotification(obj);
+
+                  if (obj.value.trim() == "") {
+                    const notificationElement = document.createElement('p');
+                    notificationElement.innerText = "Please enter your " + obj.name + ".";
+                    notificationElement.style.color = 'red';
+                    notificationElement.id = obj.name + '-validating-notification';
+                    obj.parentNode.append(notificationElement);
+                    return false;
+                  }
+
+                  return true;
+              }
+
+              function removeValidatingNotification(obj) {
+                const x = document.getElementById(obj.name + '-validating-notification');
+                if(x) x.remove();
+              }
+
+              function validateForm() {
+                return validate(document.forms.loginForm["email"]) && validate(document.forms.loginForm["password"]);
+              }
+          </script>
+
+        <input type="submit" name="" value="Log In">
+        
+        <p>Do not have account yet?</p>
+        <p><input type="button" name="" value="Create account" onclick="window.location.href='/signup'"></p>
+
+    </form>
+    <!-- END thuc:login update data validation -->
+
+<!-- sign up -->
+
+    <!-- START thuc:signup update data validation -->
+    Welcome to BookExchange!<br>
+    To start your journey you need to register.
+    <form name="signupForm" action="/signup" method="POST" onsubmit="return validateForm2()">
+        <p><label>Name</label><input type="text" name="name" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+        <p><label>Surname</label><input type="text" name="surname"></p>
+        <p><label>Email</label><input type="email" name="email" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+        <p><label>Country</label><input type="text" name="country"></p>
+        <p><label>City</label><input type="text" name="city"></p>
+        <p><label>Street</label><input type="text" name="street"></p>
+        <p><label>Postal code</label><input type="text" name="postal code"></p>
+        
+        <p><label>Set up your password</label></p>
+        <p><input type="password" name="password" onblur="validate(this)"
+              onfocus="removeValidatingNotification(this)"></p>
+        <p><label>Please re-type your password</label></p>
+        <p><input type="password" name="password2" onfocus="removeValidatingNotification(this)"></p>
+
+        <input type="submit" name="" value="Create account">
+    </form>
+    <!-- END thuc:signup -->
+
+
+
+<!-- detail page -->
+
+    <!-- Hieu detail page -->
+    <div class="web">
+      <!-- header -->
+      <div class="header">
+          <!-- header_navbar -->
+          <div class="header_navbar">
+          </div>
+      </div>
+
+      <!-- container -->
+      <div class="container">
+          <!-- container-img-info -->
+          <div class="container-img-info">
+              <div class="container--img">
+                  <div class="container---bigimg">
+                      <img src="img/sp01.png">
+                  </div>
+                  <div class="container---smallimgs">
+                      <div class="smallimg">
+                          <img src="img/sp01/slide2.png">
+                          <div class="hide"><img src="img/sp01/slide2.png"></div>
+                          
+                      </div>
+                      <div class="smallimg">
+                          <img src="img/sp01/slide3.png">
+                          <div class="hide"><img src="img/sp01/slide3.png"></div>
+                      </div>
+                      <div class="smallimg">
+                          <img src="img/sp01/slide4.png">
+                          <div class="hide"><img src="img/sp01/slide4.png"></div>
+                      </div>
+                      <div class="smallimg">
+                          <img src="img/sp01/slide5.png">
+                          <div class="hide"><img src="img/sp01/slide5.png"></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="container--info">
+                  <div class="info-book">THE CALL OF THE WILD</div>
+                  <div class="info-book">Jack London</div>
+
+                  <div class="info-version">
+                      <div>Issue date: <span>05/05/2019</span></div>
+                      <div>Edition: <span>2</span></div>
+                  </div>
+                  <div class="info-condition">Book condition: <span>like new 90 % ...</span></div>
+                  
+                  <div class="info-owner">Owner: <span>Hieu Nguyen</span></div>
+                  <div class="info-rating">
+                      <span>Rating: </span>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  </div>
+
+                  <button class="buynow"><a href="">Message with Owner</a></button>
+                  <div class="info-delivery">Estimated delivery time: <span>14</span>  days</div>
+              </div>
+          </div>
+          <!-- container-summary -->
+          <div class="container-summary">
+              <h1>SUMMARY</h1>
+              <p><b>Jack London</b> - John Griffith London (born John Griffith Chaney; January 12, 1876 – November 22, 1916) was an American novelist, journalist, and social activist. A pioneer of commercial fiction and American magazines, he was one of the first American authors to become an international celebrity and earn a large fortune from writing.[citation needed] He was also an innovator in the genre that would later become known as science fiction.</p>
+              <p>His most famous works include The Call of the Wild and White Fang, both set in the Klondike Gold Rush, as well as the short stories "To Build a Fire", "An Odyssey of the North", and "Love of Life". He also wrote about the South Pacific in stories such as "The Pearls of Parlay", and "The Heathen".</p>
+              <p><b>The Call of the Wild</b> is a short adventure novel by Jack London, published in 1903 and set in Yukon, Canada, during the 1890s Klondike Gold Rush, when strong sled dogs were in high demand. The central character of the novel is a dog named Buck. The story opens at a ranch in Santa Clara Valley, California, when Buck is stolen from his home and sold into service as a sled dog in Alaska. He becomes progressively primitive and wild in the harsh environment, where he is forced to fight to survive and dominate other dogs. By the end, he sheds the veneer of civilization, and relies on primordial instinct and learned experience to emerge as a leader in the wild.</p>
+              <p>London spent almost a year in the Yukon, and his observations form much of the material for the book. The story was serialized in The Saturday Evening Post in the summer of 1903 and was published later that year in book form. The book's great popularity and success made a reputation for London. As early as 1923, the story was adapted to film, and it has since seen several more cinematic adaptations.</p>
+          </div>  
+      </div>
+    <!-- Hieu detail page end -->
+
+
+<!-- profile page -->
+
+<!-- START thuc:header -->
+<div class="header">
+    <a href="/"><img src="https://github.com/OAMK-DIN20SP/Web-programming-project-/blob/main/book_api/public/images/logo.PNG?raw=true"></a>
+    <a href="/about" style="right:300px">About</a>
+    <button href="/signup" style="right:200px; color:#AB9353; background-color:#fdfbf3">Sign Up</button>
+    <button href="/login" style="right:100px">Log In</button>
+    </div>
+    <!-- END thuc:header -->
+
+    <!-- START thuc:profile page -->
+    <div class="t-profile-information">
+        <div class="t-left-panel-avatar-and-name">
+            <div class="t-avatar"><img src="https://github.com/OAMK-DIN20SP/Web-programming-project-/blob/devAna/book_api/public/images/avatar.jpg?raw=true"></div>
+            <!-- <div class="t-full-name">{member.firstname + ' ' + member.lastname}</div> -->
+            <div class="t-full-name">John Doe</div>
+            <button id="edit-my-profile">Edit my profile</button>
+        </div>
+        <table class="t-right-panel-other-info">
+             <tr>
+                 <td><label>Full name </label></td>
+                 <td><label class="non-editable" name="profile-info-to-edit" contentEditable="false">John Doe</label></td>
+             </tr>
+             
+             <tr>
+                 <td><label>Email </label></td>
+                 <td><label class="non-editable" name="profile-info-to-edit" contentEditable="false">doe.john.9600@gmail.com</label></td>
+             </tr>
+             <tr> 
+                 <td><label>Phone </label></td>
+                 <td><label class="non-editable" name="profile-info-to-edit" contentEditable="false">+358 20 6110 200</label></td>
+             </tr>
+             <tr>
+                 <td><label>Address </label></td>
+                 <td><label class="non-editable" name="profile-info-to-edit" contentEditable="false"> Pentti Kaiteran katu 1, 90570 Oulu</label></td>
+             </tr>
+             <tr>
+            <td><label>Credit score</label></td>
+            <td><label>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <style type="text/css">
+                    .fa-star.checked, .fa-star-half.checked { color: orange; }
+                </style>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star-half checked"></span>
+            </label></td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>My books</h2> <!-- guest view: John Doe's books -->
+    <div class="t-my-books">
+        <div class="t-book-listing">
+            <img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg">
+            <img src="images/book-cover.jpg">
+            <img src="images/book-cover.jpg">
+            <img src="images/book-cover.jpg">
+        </div>
+        <div class="t-pagination">
+            <button id="btn_prev">Previous</button>
+            <span id="page_span">1</span>
+            <button id="btn_next">Next</button>
+        </div>
+    </div>
+
+    <h2>About me</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum in est sed sollicitudin. Pellentesque venenatis malesuada sapien, a tempor ipsum. Proin cursus ante vitae purus tempor cursus. Vivamus sit amet varius ex, eleifend sodales lectus. Etiam convallis dapibus ornare. Nullam nec dolor a nisi accumsan dapibus. Proin sagittis sem nulla, id tempus diam mollis non. Mauris in massa id velit sagittis mattis non id mauris. Etiam leo neque, sollicitudin sed libero sit amet, consectetur ullamcorper urna. Mauris eros enim, pharetra et elit eu, placerat blandit ipsum. Vestibulum iaculis purus ut ipsum accumsan commodo. Mauris tristique laoreet elit non scelerisque. Maecenas nec accumsan nibh, in tincidunt nunc. Aenean lorem lectus, semper eu ipsum et, posuere lobortis ligula. Nunc justo nibh, euismod a tincidunt et, tincidunt nec enim. Fusce id tellus vitae ipsum mollis malesuada</p>
+
+    <h2>Latest Reviews</h2>
+    <table>
+        <tr>
+            <td>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </td>
+            <td>
+                Excellent. He is a true book lover. The book is carefully used
+            </td>
+            <td>
+                <span class="fa fa-user"></span>
+                Zoralth
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </td>
+            <td>
+                There was a little misunderstanding at first. Then everything went well
+            </td>
+            <td>
+                <span class="fa fa-user"></span>
+                Billy the Kid
+            </td>
+        </tr>
+    </table>
+    
+    <button>View My Exchange History</button>
+    <!-- END thuc:profile page -->
+    
+<!--   popup - signup - Hieu   -->
+    <button class="signup-button" onclick="openSignupForm()">Sign up</button>
+        <div class="popup-signup-form" id="signupForm">
+            <!-- <form action="/action_page.php" class="signup-form"> -->
+            <form class="signup-form">
+                <h2>Welcome to BookExchange! 
+                    To start your journey you need to register.</h2>
+    
+                <div>
+                    <label><b>Name</b></label>
+                    <input type="text" placeholder="Enter Name" required>
+                </div>
+                <div>
+                    <label><b>Surname</b></label>
+                    <input type="text" placeholder="Enter Surname" required>
+                </div>
+                <div>
+                    <label><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" required>
+                </div>
+                <div>
+                    <label><b>Country</b></label>
+                    <input type="text" placeholder="Enter Country" required>
+                </div>
+                <div>
+                    <label><b>City</b></label>
+                    <input type="text" placeholder="Enter City" required>
+                </div>
+                <div>
+                    <label><b>Street</b></label>
+                    <input type="text" placeholder="Enter Street" required>
+                </div>
+                <div>
+                    <label><b>Postal code</b></label>
+                    <input type="text" placeholder="Enter Postal code" required>
+                </div>
+
+                <div>
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+                <div>
+                    <label><b>Confirm password</b></label>
+                    <input type="password" placeholder="Confirm Password" name="psw" required>
+                </div>
+
+                <button type="submit" class="btn signup">Create your account</button>
+                <button type="button" class="btn cancel" onclick="closeSignupForm()">Close</button>
+            </form>
+        </div>
+    <!--   popup - signup - Hieu - END  -->
+</body>
+</html>
