@@ -5,7 +5,7 @@ var member = require('../models/member_model.js');
 
 router.get('/', (req, res) => {
     console.log(req.query.idmember);
-    book.getByIdbook( req.query.idmember, (err, dbResult) => {
+    book.getByIdmember( req.query.idmember, (err, dbResult) => {
         err ? res.json(err) : res.render('member', { books: dbResult});
     } )
     
