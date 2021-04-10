@@ -4,7 +4,6 @@ var book = require('../models/book_model.js');
 var member = require('../models/member_model.js');
 
 router.get('/', (req, res) => {
-    console.log('homeRouter -- router.get');
     console.log(req.query.idmember);
     book.getByMember( req.query.idmember, (err, dbResult) => {
         err ? res.json(err) : res.render('home', { books: dbResult});
@@ -19,6 +18,7 @@ router.post('/add', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+    console.log(req.body.emailaddress, req.body.password);
     member.get(req.body.emailaddress, req.body.password, (err, dbResult) => {
         if (err) {
             res.json(err);

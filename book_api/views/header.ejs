@@ -11,7 +11,7 @@
       <li><button class="login-button" onclick="openLoginForm()">Log In</button></li>
     </ul>
 
-    <div class="popup-signup-form" id="signupForm" action="/member/add">
+    <div class="popup-signup-form" id="signupForm" action="/member/add" method="post">
         <form class="signup-form">
           <h2>Welcome to BookExchange! 
               To start your journey you need to register.</h2>
@@ -59,17 +59,17 @@
         </form>
     </div>
 
-    <div class="popup-login-form" id="loginForm">
-        <form class="login-form">
+    <div class="popup-login-form" id="loginForm" >
+        <form class="login-form" action="/member/login" method="post">
           <h2>If you already have a BookExchange profile, please log in.</h2>
 
           <div>
             <label><b>Email</b></label>
-            <input type="email" placeholder="Enter Email" required>
+            <input type="email" name="emailaddress" placeholder="Enter Email" required>
           </div>
           <div>
             <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
           </div>
           <button type="submit" class="btn login">Log In</button>
           <div>
