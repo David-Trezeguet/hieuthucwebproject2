@@ -5,8 +5,8 @@ var member = require('../models/member_model.js');
 
 router.get('/', (req, res) => {
     console.log(req.query.idmember);
-    book.getByMember( req.query.idmember, (err, dbResult) => {
-        err ? res.json(err) : res.render('home', { books: dbResult});
+    book.getByIdbook( req.query.idmember, (err, dbResult) => {
+        err ? res.json(err) : res.render('member', { books: dbResult});
     } )
     
 });
@@ -25,8 +25,8 @@ router.post('/login', (req, res) => {
         } else {
             if (dbResult.length > 0) {
                 console.log(dbResult);
-                // res.redirect('/home?idmember=' + dbResult[0].idmember);  //redirect on client side
-                res.json(dbResult);
+                res.redirect('/member?idmember=' + dbResult[0].idmember);
+                // res.json(dbResult);
             } else {
                 res.json( {success: false, message: 'Invalid email and/or password'});
             }
